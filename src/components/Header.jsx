@@ -23,15 +23,15 @@ export default function Header() {
                         <li className="nav-item">
                             <i className="fa-regular fa-user me-2"></i>
                             {/* <a href="pages/login.html">Account</a> */}
-                            <Link to="/login" className={({ isActive }) => isActive ? "active-green nav-link category-nav" : "nav-link category-nav"}>Account</Link>
+                            <NavLink to="/login" className={({ isActive }) => isActive ? "active-green category-nav" : "category-nav"}>Account</NavLink>
                         </li>
                         <li className="nav-item pointer">
                             <i className="fa-regular fa-heart me-2"></i>
-                            <Link to="/wishlist" className={({ isActive }) => isActive ? "active-green nav-link category-nav" : "nav-link category-nav"}>Wishlist</Link>
+                            <NavLink to="/wishlist" className={({ isActive }) => isActive ? "active-green  category-nav" : " category-nav"}>Wishlist</NavLink>
                         </li>
                         <li className="nav-item">
-                            <i class="fa-solid fa-cart-shopping me-2"></i>
-                            <Link to="/cart" className={({ isActive }) => isActive ? "active-green nav-link category-nav" : "nav-link category-nav"}>Cart</Link>
+                            <i className="fa-solid fa-cart-shopping me-2"></i>
+                            <NavLink to="/cart" className={({ isActive }) => isActive ? "active-green  category-nav" : " category-nav"}>Cart</NavLink>
                         </li>
                     </ul>
 

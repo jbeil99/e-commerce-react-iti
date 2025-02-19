@@ -46,10 +46,16 @@
             "price": "25",
             "customerPrice": "50",
             "quantity": 0,
-            "category": "1",
+            "category": {
+                "id": "1",
+                "name": "Water"
+            },
             "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcThAQv6vUm8jpXKR_kNbs4hus2u8LVIK8TxohBKPmZehRCEvDrgaxin25ZQAt4ZBobSzAMmjNFApcGHDykX5hrVDVxeD_7yGnKr4Lwq2Qs",
             "rating": 0,
-            "seller_id": "1",
+            "seller": {
+                "id": 1,
+                "name": "Clicon"
+            },
             "reviews": [],
             "approved": true,
             "sold": 0,
@@ -64,10 +70,16 @@
             "price": 20,
             "customerPrice": 80,
             "quantity": 24,
-            "category": "1",
+            "category": {
+                "id": "1",
+                "name": "Water"
+            },
             "image": "https://i.pinimg.com/550x/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.jpg",
             "rating": 0,
-            "seller_id": "2e61",
+            "seller": {
+                "id": 1,
+                "name": "Clicon"
+            },
             "reviews": [],
             "approved": true,
             "sold": 0,
@@ -81,10 +93,16 @@
             "price": 20,
             "customerPrice": 25,
             "quantity": 16,
-            "category": "3",
+            "category": {
+                "id": "1",
+                "name": "Fire"
+            },
             "image": "https://media.tenor.com/53miymrFe_UAAAAM/hold-on.gif",
             "rating": 0,
-            "seller_id": "2e61",
+            "seller": {
+                "id": 1,
+                "name": "Clicon"
+            },
             "reviews": [],
             "approved": true,
             "sold": 0,
@@ -98,14 +116,20 @@
             "price": 100,
             "customerPrice": 180,
             "quantity": 20,
-            "category": "3",
+            "category": {
+                "id": "1",
+                "name": "Fire"
+            },
             "image": "https://i.pinimg.com/736x/53/8d/e5/538de5e0da2fc61c6bddb5304bbbc71e.jpg",
             "rating": 0,
-            "seller_id": "2e61",
+            "seller": {
+                "id": 1,
+                "name": "Clicon"
+            },
             "reviews": [],
             "approved": true,
             "sold": 0,
-            "sale": 10,
+            "sale": 30,
             "createdAt": "2025-01-19T04:45:27.716Z"
         },
         {
@@ -115,10 +139,16 @@
             "price": 15,
             "customerPrice": 280,
             "quantity": 3,
-            "category": "1",
+            "category": {
+                "id": "1",
+                "name": "Fire"
+            },
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&s",
             "rating": 0,
-            "seller_id": "2e61",
+            "seller": {
+                "id": 2,
+                "name": "Hussin"
+            },
             "reviews": [],
             "approved": true,
             "sold": 0,

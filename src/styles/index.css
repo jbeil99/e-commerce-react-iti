@@ -217,6 +217,9 @@ ul.nav .nav-item {
   color: #FFFFFF;
   padding: 40px 0;
   width: 100%;
+  /* margin-top: 50vh !important; */
+  margin-bottom: -200px !important;
+
 }
 
 .footer .row {
@@ -306,6 +309,13 @@ ul.nav .nav-item {
     max-width: 280px;
   }
 
+  .daily-sells-section .card {
+    max-width: 250px;
+  }
+
+  #daily-banner {
+    max-width: none;
+  }
 }
 
 
@@ -366,4 +376,8 @@ ul.nav .nav-item {
 
 .carousel-control-prev-icon {
   background-color: gray;
+}
+
+.notfound {
+  height: 50vh;
 }

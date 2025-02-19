@@ -1,35 +1,34 @@
-
-import packageIcon from '../assets/icon/Package.png'
-import trophyIcon from '../assets/icon/Trophy.png'
-import creditIcon from '../assets/icon/CreditCard.png'
-import supportIcon from '../assets/icon/Vector.png'
 import Carousel from 'react-bootstrap/Carousel';
-import ServicesCard from './ServicesCard'
 import ProductCard from './ProductCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllProductsAction, getBestDeals } from '../store/productSlice';
+import { useEffect, useState, useMemo } from 'react';
+
+const makeChunks = (products, chunkSize) => {
+    const chunks = [];
+    for (let i = 0; i < products.length; i += chunkSize) {
+        let chunk = [];
+        for (let j = i; j < i + chunkSize && j < products.length; j++) {
+            chunk.push(products[j]);
+        }
+        chunks.push(chunk);
+    }
+    return chunks
+}
+
+
 
 export default function BestDeals() {
-    const services = [
-        {
-            img: packageIcon,
-            title: 'Fasted Delivery',
-            body: 'Delivery in 24/H'
-        },
-        {
-            img: trophyIcon,
-            title: '24 Hours Return',
-            body: '100% money-back guarantee'
-        },
-        {
-            img: creditIcon,
-            title: 'Secure Payment',
-            body: 'Your money is safe'
-        },
-        {
-            img: supportIcon,
-            title: 'Support 24/7',
-            body: 'Live contact/message'
-        }
-    ]
+    let { products, isLoading, errors } = useSelector(store => store.productSlice);
+    let items = [];
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getAllProductsAction())
+            .then(res => dispatch(getBestDeals(20)));
+    }, [])
+    if (!isLoading) {
+        items = makeChunks(products, 4);
+    }
     return (
         <section className="daily-sells-section px-2 px-lg-0">
             <div className="row mb-md-5 mb-3 row-cols-1 row-cols-md-2 justify-content-between ">
@@ -56,31 +55,29 @@ export default function BestDeals() {
                         <a href="#" className="btn btn-primary">Shop now &rarr;</a>
                     </div>
                 </div>
-                <Carousel indicators={false} className="col col-xl-9 mt-5 mt-xl-0">
-                    <Carousel.Item>
-                        <div className="row gap-3">
-                            <ProductCard />
-                            <ProductCard responsive="d-none d-sm-block" />
-                            <ProductCard responsive="d-none d-md-block" />
-                            <ProductCard responsive="d-none d-lg-block" />
-                        </div>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div className="row gap-3">
-                            <ProductCard />
-                            <ProductCard responsive="d-none d-sm-block" />
-                            <ProductCard responsive="d-none d-md-block" />
-                            <ProductCard responsive="d-none d-lg-block" />
-                        </div>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div className="row gap-3">
-                            <ProductCard />
-                            <ProductCard responsive="d-none d-sm-block" />
-                            <ProductCard responsive="d-none d-md-block" />
-                            <ProductCard responsive="d-none d-lg-block" />
-                        </div>
-                    </Carousel.Item>
+                <Carousel controls={items.length > 2} indicators={false} className="col col-xl-9 mt-5 mt-xl-0">
+                    {!isLoading ? items.map((item, index) => {
+                        return (
+                            <Carousel.Item key={index}>
+                                <div className="row gap-3 justify-content-center">
+                                    {item.map((product, index) => {
+                                        let x = {
+                                            responsive: ''
+                                        }
+                                        if (index === 1) {
+                                            x.responsive = "d-none d-sm-block"
+                                        } else if (index === 2) {
+                                            x.responsive = "d-none d-md-block"
+                                        } else if (index === 3) {
+                                            x.responsive = "d-none d-lg-block"
+                                        }
+                                        x = { ...x, ...product }
+                                        return <ProductCard {...x} key={index} />
+                                    })}
+                                </div>
+                            </Carousel.Item>
+                        )
+                    }) : ''}
                 </Carousel>
             </div>
         </section >

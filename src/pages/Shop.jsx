@@ -11,8 +11,6 @@ export default function Shop() {
         dispatch(getAllProductsAction());
     }, [])
 
-
-
     const handleSearch = (e) => {
         if (!e.target.value.trim()) {
             dispatch(getAllProductsAction());

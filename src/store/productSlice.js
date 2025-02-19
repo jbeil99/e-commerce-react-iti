@@ -73,6 +73,9 @@ const productSlice = createSlice({
     reducers: {
         filter: (state, action) => {
             state.products = state.products.filter(product => product.name.toLowerCase().match(action.payload.toLowerCase()));
+        },
+        getBestDeals: (state, action) => {
+            state.products = state.products.filter(product => Number(product.sale) > action.payload);
         }
     },
     extraReducers: (builder) => {
@@ -96,4 +99,4 @@ const productSlice = createSlice({
 });
 
 export const productReducer = productSlice.reducer;
-export const { filter } = productSlice.actions;
+export const { filter, getBestDeals } = productSlice.actions;

@@ -6,7 +6,7 @@ import socials_4 from '../assets/icon/Link 4.png';
 
 export default function Footer() {
     return (
-        <footer className="footer py-4">
+        <footer className="footer py-4 mb-0">
             <div className="container">
                 <div className="row">
 
@@ -63,12 +63,9 @@ export default function Footer() {
                             <img src={socials_4} alt="" />
 
                         </div>
-
-
                     </div>
                 </div>
             </div>
         </footer>
-
     )
 }
