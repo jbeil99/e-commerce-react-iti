@@ -1,9 +1,4 @@
-import logo from '../assets/footer/Logo.png';
-import link_1 from '../assets/footer/1.png';
-import link_2 from '../assets/footer/2.png';
-import link_3 from '../assets/footer/3.png';
-import link_4 from '../assets/footer/4.png';
-import link_5 from '../assets/footer/5.png';
+import logo from '../assets/icon/Logo.png';
 import socials_1 from '../assets/icon/Link 1.png';
 import socials_2 from '../assets/icon/Link 2.png';
 import socials_3 from '../assets/icon/Link 3.png';
@@ -14,8 +9,12 @@ export default function Footer() {
         <footer className="footer py-4">
             <div className="container">
                 <div className="row">
+
                     <div className="col-lg-3 col-md-6">
-                        <img className="move-img" src={logo} alt="FoodTrove Logo" />
+                        <div>
+                            <img className='me-2' src={logo} alt="FoodTrove Logo" />
+                            <p className='d-inline footer-logo'>Clicon</p>
+                        </div>
                         <p>FoodTrove is the biggest market of grocery products.</p>
                         <p><i className="fas fa-map-marker-alt text-danger"></i> 51 Green St, Huntington, Ontario, NY
                         </p>
@@ -24,26 +23,27 @@ export default function Footer() {
                     </div>
 
                     <div className="col-lg-2 col-md-6 mt-3">
-                        <h5 className="fw-bold">Company</h5>
+                        <h5 className="fw-bold">Top Category</h5>
                         <ul className="list-unstyled company-list">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Delivery Information</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Support Center</a></li>
+                            <li><a href="#">Computer & Laptop</a></li>
+                            <li><a href="#">SmartPhone</a></li>
+                            <li><a href="#">Headphone</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">Camera & Photo</a></li>
+                            <li><a href="#">TV & Homes</a></li>
                         </ul>
                     </div>
 
                     <div className="col-lg-2 col-md-6 mt-3">
-                        <h5 className="fw-bold">Category</h5>
+                        <h5 className="fw-bold">Quick links</h5>
                         <ul className="list-unstyled category-list">
-                            <li><a href="#">Dairy & Bakery</a></li>
-                            <li><a href="#">Fruits & Vegetables</a></li>
-                            <li><a href="#">Snack & Spice</a></li>
-                            <li><a href="#">Juice & Drinks</a></li>
-                            <li><a href="#">Chicken & Meat</a></li>
-                            <li><a href="#">Fast Food</a></li>
+                            <li><a href="#">Shop Product</a></li>
+                            <li><a href="#">Shoping Cart</a></li>
+                            <li><a href="#">Wishlist</a></li>
+                            <li><a href="#">Compare</a></li>
+                            <li><a href="#">Track Order</a></li>
+                            <li><a href="#">Customer Help</a></li>
+
                         </ul>
                     </div>
 
@@ -64,13 +64,7 @@ export default function Footer() {
 
                         </div>
 
-                        <div className="d-flex mt-4 footer-images">
-                            <img src={link_1} className="me-3" />
-                            <img src={link_2} className="me-3" />
-                            <img src={link_3} className="me-3" />
-                            <img src={link_4} className="me-3" />
-                            <img src={link_5} className="me-3" />
-                        </div>
+
                     </div>
                 </div>
             </div>

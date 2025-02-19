@@ -6,7 +6,7 @@ export function SharedLayout() {
         <>
             <Header />
             <Outlet />
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }

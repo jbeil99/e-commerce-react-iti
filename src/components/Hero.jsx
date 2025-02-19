@@ -1,7 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import heroImg from '../assets/hero/hero.png';
 import HeroCard from './HeroCard';
-import phone from '../assets/hero/card_1.png';
 import earbods from '../assets/hero/card_2.png';
 
 export default function Hero() {

@@ -1,49 +1,28 @@
-import { useState } from "react"
-import { Link } from "react-router";
 export default function ProductCard(props) {
-    const [show, setShow] = useState(false);
-    const toggleShow = () => {
-        setShow(!show);
-    }
     return (
-        <div className="card  product-card__rounded col">
-            <Link className="text-decoration-none" to={`/products/${props.id}`}>
-                <img src={props.img} className="card-img-top"
-                    alt="Fresh organic villa farm lemon 500gm pack" />
-                <div className="card-body">
-                    {props.quantity > 0 ? <>
-                        <p className="text-muted">{props.category}</p>
-                        <h5 className="card-title">{props.name}</h5>
-                        <div className="ratings">
-
-                            <i className="fa fa-star rating-color"></i>
-                            <i className="fa fa-star rating-color"></i>
-                            <i className="fa fa-star rating-color"></i>
-                            <i className="fa fa-star rating-color"></i>
-                            <i className="fa fa-star"></i>
-
-                            <span className="text-muted ml-2">({props.rating})</span>
-                        </div>
-                        <p className="card-text text-danger mt-2"><span className="text-muted">By</span> {props.seller}</p>
-                        <p className="card-text text-success mt-2 fw-bold"><span className="text-muted">Quantity</span> {props.quantity}</p></> : <p className="text-danger">Out Of Stock</p>}
-                    <p className="card-text text-success mt-2 fw-bold">
-                        <span className="text-muted">Description:</span>
-                        {
-                            show ? <>{props.description}
-                                <button className="btn" onClick={toggleShow}>Show less</button></> :
-                                <>{props.description.slice(0, 20)}
-                                    <button className="btn" onClick={toggleShow}>Show more</button></>
-                        }
-                    </p>
-
-                    <div className="row">
-                        <p className="text-success font-weight-bold h5 col-12">Price: ${props.price} </p>
-                        <button href="#" className={`btn ${props.quantity > 1 ? 'btn-success' : (props.quantity === 1 ? 'btn-warning' : 'btn-danger')} rounded ms-auto col-12`}> <i
-                            className="fa-solid fa-cart-shopping"></i>
-                            {props.quantity >= 1 ? 'Buy now' : 'Sold Out'}</button>
-                    </div>
+        <div className={`card hot product-card__rounded col ${props.responsive}`}>
+            <span className="product-badge">Hot</span>
+            <img src='/src/assets/products/lemon.png' className="card-img-top"
+                alt="Fresh organic villa farm lemon 500gm pack" />
+            <div className="card-body">
+                <p className="text-muted">Snack</p>
+                <h5 className="card-title">Fresh organic villa farm lemon 500gm pack</h5>
+                <div className="ratings">
+                    <i className="fa fa-star rating-color"></i>
+                    <i className="fa fa-star rating-color"></i>
+                    <i className="fa fa-star rating-color"></i>
+                    <i className="fa fa-star rating-color"></i>
+                    <i className="fa fa-star"></i>
+                    <span className="text-muted ml-2">(4.0)</span>
                 </div>
-            </Link>
-        </div >
+                <p className="card-text text-danger mt-2"><span className="text-muted">By</span> NestFood</p>
+                <div className="row">
+                    <p className="text-success font-weight-bold h5 col-auto">$28.85 <span
+                        className="text-muted h6 text-decoration-line-through ml-2 ">$32.8</span></p>
+                    <a href="#" className="btn btn-primary rounded ms-auto col-auto">
+                        <i className="fa-solid fa-cart-shopping"></i>add</a>
+                </div>
+            </div>
+        </div>
     )
 }
