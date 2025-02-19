@@ -1,0 +1,296 @@
+.btn-primary {
+  background-color: #F53E32 !important;
+  outline: none !important;
+  border: none !important;
+  transition: all .3s ease !important;
+}
+
+.btn-primary:hover {
+  background-color: #b41105 !important;
+}
+
+
+.product-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ff6a00;
+  color: #fff;
+  padding: 9px 20px;
+  border-radius: 15px 0 20px 0;
+  font-size: 1.2rem;
+}
+
+.hot .product-badge {
+  background-color: #F74B81;
+}
+
+.new .product-badge {
+  background-color: #3BB77E;
+}
+
+.sale .product-badge {
+  background-color: #67BCEE;
+}
+
+.discount .product-badge {
+  background-color: #F59758;
+}
+
+
+.ratings {
+  margin-right: 10px;
+}
+
+.ratings i {
+  color: #cecece;
+  font-size: 12px;
+}
+
+.rating-color {
+  color: #fbc634 !important;
+}
+
+.active-green {
+  color: #3BB77E !important;
+}
+
+.product-card__rounded {
+  border-radius: 15px !important;
+}
+
+.circle {
+  position: relative;
+  background-color: #F7F7F8;
+  border-radius: 50%;
+  width: 35px;
+  padding: 5px;
+  top: -6%;
+  left: 43%;
+}
+
+.circle i {
+  color: #64B496;
+}
+
+/* Header */
+header {
+  font-family: "Poppins", serif !important;
+}
+
+.category-nav,
+.category-nav a {
+  font-weight: 600 !important;
+  color: var(--nav-color) !important;
+}
+
+.fa-phone {
+  color: var(--nav-color);
+  text-align: center;
+}
+
+ul.nav .nav-item a {
+  text-decoration: none;
+  color: var(--nav-color);
+  font-size: 15;
+}
+
+ul.nav .nav-item {
+  font-weight: 500;
+
+}
+
+
+@media screen and (min-width: 986px) {
+
+  nav .container-fluid,
+  .navbar .container-fluid {
+    width: 75%;
+  }
+}
+
+/* Sidebar */
+
+#filter-aside {
+  background-color: #F7F7F8;
+}
+
+#filter-aside {
+  color: #7A7A7A;
+  padding: 25px;
+}
+
+#filter-aside h5 {
+  color: #2B2B2D;
+  font-weight: 500;
+  border-bottom: 1px solid #E9E9E9;
+  padding: .5rem;
+}
+
+
+.color-filter {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+}
+
+.price-range p strong {
+  color: #000000;
+
+}
+
+.price-range p {
+  font-weight: 700;
+}
+
+.product-tags span {
+  background: #FFFFFF;
+  border: 1px solid #E9E9E9;
+  padding: 8px 12px;
+  font-size: 1rem;
+  display: inline-block;
+  margin: 4px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* =========================================== */
+
+.breadcrumb-item+.breadcrumb-item::before {
+  content: none !important;
+}
+
+
+.breadcrumb a {
+  color: white !important;
+  text-decoration: none;
+}
+
+.breadcrumb-item {
+  color: white !important;
+}
+
+/* =========================================== */
+
+
+
+
+/* ======================= 
+     Footer Strat
+=========================  */
+
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+  width: 100%;
+}
+
+.footer .row {
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer .col-md-4 {
+  flex: 1;
+  min-width: 280px;
+  padding: 0 20px;
+}
+
+.footer h5 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.footer p,
+.footer ul li {
+  color: #7A7A7A;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.footer ul {
+  padding: 0;
+  list-style: none;
+}
+
+.footer ul li {
+  margin-bottom: 11px;
+}
+
+.footer ul li a {
+  text-decoration: none;
+  color: #7A7A7A;
+  font-size: 16px;
+}
+
+.footer ul li a:hover {
+  color: red;
+}
+
+.footer .social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.footer .social-icons img {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.footer .social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.move-img {
+  transform: translate(-28px, 5px);
+}
+
+
+
+/* HERO section */
+.section-container section {
+  margin-bottom: 3rem;
+}
+
+@media screen and (min-width:1200px) {
+  .section-container {
+    max-width: 1320px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    max-width: 280px;
+  }
+
+}
+
+
+.hero-card,
+.hero-card .card {
+  background-color: #F2F4F5;
+}
+
+.hero-card h5 {
+  color: #191C1F !important;
+  font-size: 3rem;
+}
+
+.hero-card p {
+  color: #475156 !important;
+}
+
+.hero-carousel {
+  max-width: 872px;
+}
+
+.c-card .card {
+  max-width: 424px;
+}
+
+
+/* .phone {
+  width: 312px !important;
+} */
