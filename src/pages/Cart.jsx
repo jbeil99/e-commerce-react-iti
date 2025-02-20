@@ -1,7 +1,18 @@
 import { Link } from "react-router"
 import CartCard from "../components/CartCard"
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCartAction } from '../store/cartSlice'
 
 export default function Cart() {
+    let { cart, isLoading, errors } = useSelector(store => store.cartSlice)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getCartAction('dc10'));
+    }, [])
+
+
     return (
         <section className="h-custom">
             <div className="container py-5 h-100">
@@ -19,8 +30,9 @@ export default function Cart() {
 
                             </div>
 
-                            <CartCard />
-
+                            {!isLoading ? cart.items.map((item) => {
+                                return <CartCard {...item} key={item.productID} cartID={cart.id} />
+                            }) : 'Loading'}
                         </div>
                         <div className="col-lg-5">
                             <div className="card bg-primary text-white rounded-3">

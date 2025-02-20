@@ -1,421 +1,164 @@
 {
-    "users": [
+  "users": [
+    {
+      "username": "clicon",
+      "firstName": "Hussi",
+      "lastName": "Soliman",
+      "email": "admin@clicon.com",
+      "password": "admin",
+      "role": "admin",
+      "id": "1"
+    },
+    {
+      "id": "20bd",
+      "username": "test",
+      "password": "QuackLEL22",
+      "firstName": "sdasd",
+      "lastName": "asdas",
+      "email": "asdasds2@gmail.com",
+      "role": "customer"
+    },
+    {
+      "id": "2e61",
+      "username": "hussin",
+      "password": "QuackLEL22",
+      "firstName": "hussin",
+      "lastName": "ahmed",
+      "email": "huss@hu.com",
+      "role": "seller",
+      "approved": true
+    },
+    {
+      "id": "be4b",
+      "username": "hosny",
+      "password": "QuackLEL22",
+      "firstName": "mohamed",
+      "lastName": "hosny",
+      "email": "hosn@clicon.com",
+      "role": "manger"
+    }
+  ],
+  "products": [
+    {
+      "id": "953a",
+      "name": "Pikachu",
+      "description": "Pikachu is renowned for being the most well-known and recognizable Pokémon. Over the years, Pikachu has become so popular that it serves as the Pokémon mascot. In the games, Pikachu is the version mascsssot and first partner Pokémon of Pokémon Yellow Special Pikachu Edition and its remake Pokémon: Let's Go, Pikachu!. In the anime, Pikachu appeared regularly as the main travel companion and partner to Ash Ketchum; while another variant, partners alongside Professor Friede in Pokémon Horizons: The Series. ",
+      "price": "25",
+      "customerPrice": "50",
+      "quantity": 0,
+      "category": {
+        "id": "1",
+        "name": "Water"
+      },
+      "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcThAQv6vUm8jpXKR_kNbs4hus2u8LVIK8TxohBKPmZehRCEvDrgaxin25ZQAt4ZBobSzAMmjNFApcGHDykX5hrVDVxeD_7yGnKr4Lwq2Qs",
+      "rating": 0,
+      "seller": {
+        "id": 1,
+        "name": "Clicon"
+      },
+      "reviews": [],
+      "approved": true,
+      "sold": 0,
+      "sale": 0,
+      "createdAt": "2025-01-19T04:29:09.343Z",
+      "sellerDeleted": false
+    },
+    {
+      "id": "d7ca",
+      "name": "pika supder deluxe",
+      "description": "Pik pia pikasdasdasd asd",
+      "price": 20,
+      "customerPrice": 80,
+      "quantity": 24,
+      "category": {
+        "id": "1",
+        "name": "Water"
+      },
+      "image": "https://i.pinimg.com/550x/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.jpg",
+      "rating": 0,
+      "seller": {
+        "id": 1,
+        "name": "Clicon"
+      },
+      "reviews": [],
+      "approved": true,
+      "sold": 0,
+      "sale": 50,
+      "createdAt": "2025-01-19T04:34:13.656Z"
+    },
+    {
+      "id": "e78f",
+      "name": "pika 5th (the retarded one)",
+      "description": "Quacasdasdasdasdasdassssssssss",
+      "price": 20,
+      "customerPrice": 25,
+      "quantity": 16,
+      "category": {
+        "id": "2",
+        "name": "Fire"
+      },
+      "image": "https://media.tenor.com/53miymrFe_UAAAAM/hold-on.gif",
+      "rating": 0,
+      "seller": {
+        "id": 1,
+        "name": "Clicon"
+      },
+      "reviews": [],
+      "approved": true,
+      "sold": 0,
+      "sale": 0,
+      "createdAt": "2025-01-19T04:38:54.683Z"
+    },
+    {
+      "id": "6292",
+      "name": "somic s 16",
+      "description": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&shttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&s",
+      "price": 15,
+      "customerPrice": 280,
+      "quantity": 3,
+      "category": {
+        "id": "2",
+        "name": "Fire"
+      },
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&s",
+      "rating": 0,
+      "seller": {
+        "id": 2,
+        "name": "Hussin"
+      },
+      "reviews": [],
+      "approved": true,
+      "sold": 0,
+      "sale": 60,
+      "createdAt": "2025-01-19T04:50:22.093Z"
+    }
+  ],
+  "orders": [],
+  "categories": [
+    {
+      "id": "2",
+      "name": "Fire"
+    },
+    {
+      "id": "1",
+      "name": "Water"
+    },
+    {
+      "id": "3",
+      "name": "Earth"
+    }
+  ],
+  "carts": [
+    {
+      "userID": "1",
+      "items": [
         {
-            "username": "clicon",
-            "firstName": "Hussi",
-            "lastName": "Soliman",
-            "email": "admin@clicon.com",
-            "password": "admin",
-            "role": "admin",
-            "id": "1"
-        },
-        {
-            "id": "20bd",
-            "username": "test",
-            "password": "QuackLEL22",
-            "firstName": "sdasd",
-            "lastName": "asdas",
-            "email": "asdasds2@gmail.com",
-            "role": "customer"
-        },
-        {
-            "id": "2e61",
-            "username": "hussin",
-            "password": "QuackLEL22",
-            "firstName": "hussin",
-            "lastName": "ahmed",
-            "email": "huss@hu.com",
-            "role": "seller",
-            "approved": true
-        },
-        {
-            "id": "be4b",
-            "username": "hosny",
-            "password": "QuackLEL22",
-            "firstName": "mohamed",
-            "lastName": "hosny",
-            "email": "hosn@clicon.com",
-            "role": "manger"
+          "productID": "953a",
+          "quantity": 1
         }
-    ],
-    "products": [
-        {
-            "id": "953a",
-            "name": "Pikachu",
-            "description": "Pikachu is renowned for being the most well-known and recognizable Pokémon. Over the years, Pikachu has become so popular that it serves as the Pokémon mascot. In the games, Pikachu is the version mascsssot and first partner Pokémon of Pokémon Yellow Special Pikachu Edition and its remake Pokémon: Let's Go, Pikachu!. In the anime, Pikachu appeared regularly as the main travel companion and partner to Ash Ketchum; while another variant, partners alongside Professor Friede in Pokémon Horizons: The Series. ",
-            "price": "25",
-            "customerPrice": "50",
-            "quantity": 0,
-            "category": {
-                "id": "1",
-                "name": "Water"
-            },
-            "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcThAQv6vUm8jpXKR_kNbs4hus2u8LVIK8TxohBKPmZehRCEvDrgaxin25ZQAt4ZBobSzAMmjNFApcGHDykX5hrVDVxeD_7yGnKr4Lwq2Qs",
-            "rating": 0,
-            "seller": {
-                "id": 1,
-                "name": "Clicon"
-            },
-            "reviews": [],
-            "approved": true,
-            "sold": 0,
-            "sale": 0,
-            "createdAt": "2025-01-19T04:29:09.343Z",
-            "sellerDeleted": false
-        },
-        {
-            "id": "d7ca",
-            "name": "pika supder deluxe",
-            "description": "Pik pia pikasdasdasd asd",
-            "price": 20,
-            "customerPrice": 80,
-            "quantity": 24,
-            "category": {
-                "id": "1",
-                "name": "Water"
-            },
-            "image": "https://i.pinimg.com/550x/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.jpg",
-            "rating": 0,
-            "seller": {
-                "id": 1,
-                "name": "Clicon"
-            },
-            "reviews": [],
-            "approved": true,
-            "sold": 0,
-            "sale": 50,
-            "createdAt": "2025-01-19T04:34:13.656Z"
-        },
-        {
-            "id": "e78f",
-            "name": "pika 5th (the retarded one)",
-            "description": "Quacasdasdasdasdasdassssssssss",
-            "price": 20,
-            "customerPrice": 25,
-            "quantity": 16,
-            "category": {
-                "id": "2",
-                "name": "Fire"
-            },
-            "image": "https://media.tenor.com/53miymrFe_UAAAAM/hold-on.gif",
-            "rating": 0,
-            "seller": {
-                "id": 1,
-                "name": "Clicon"
-            },
-            "reviews": [],
-            "approved": true,
-            "sold": 0,
-            "sale": 0,
-            "createdAt": "2025-01-19T04:38:54.683Z"
-        },
-        {
-            "id": "6292",
-            "name": "somic s 16",
-            "description": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&shttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&s",
-            "price": 15,
-            "customerPrice": 280,
-            "quantity": 3,
-            "category": {
-                "id": "2",
-                "name": "Fire"
-            },
-            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&s",
-            "rating": 0,
-            "seller": {
-                "id": 2,
-                "name": "Hussin"
-            },
-            "reviews": [],
-            "approved": true,
-            "sold": 0,
-            "sale": 60,
-            "createdAt": "2025-01-19T04:50:22.093Z"
-        }
-    ],
-    "orders": [
-        {
-            "id": "7e5f",
-            "userID": "20bd",
-            "totalPrice": 50,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "953a",
-                    "quantity": 1
-                }
-            ],
-            "address": {
-                "1": "asdas",
-                "2": ""
-            },
-            "phone": "01155991822",
-            "firstName": "asda",
-            "lastName": "asdas",
-            "zipcode": "44554",
-            "date": "2025-01-19T04:29:40.197Z",
-            "orderCanceld": true
-        },
-        {
-            "id": "73f7",
-            "userID": "2e61",
-            "totalPrice": 65,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "e78f",
-                    "quantity": 1
-                },
-                {
-                    "productID": "d7ca",
-                    "quantity": 1
-                }
-            ],
-            "address": {
-                "1": "شسيشسي",
-                "2": ""
-            },
-            "phone": "01155991822",
-            "firstName": "asdasd",
-            "lastName": "asdasd",
-            "zipcode": "44554",
-            "date": "2025-01-19T04:43:18.029Z"
-        },
-        {
-            "id": "b769",
-            "userID": "1",
-            "totalPrice": 1959,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "e78f",
-                    "quantity": 1
-                },
-                {
-                    "productID": "d7ca",
-                    "quantity": 25
-                },
-                {
-                    "productID": "953a",
-                    "quantity": 3
-                },
-                {
-                    "productID": "6292",
-                    "quantity": 7
-                }
-            ],
-            "address": {
-                "1": "asdasda",
-                "2": ""
-            },
-            "phone": "01155991822",
-            "firstName": "dadasd",
-            "lastName": "asdasd",
-            "zipcode": "44554",
-            "date": "2025-01-19T10:58:10.030Z"
-        },
-        {
-            "id": "b30a",
-            "userID": "1",
-            "totalPrice": 150,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "953a",
-                    "quantity": 2
-                },
-                {
-                    "productID": "e78f",
-                    "quantity": 2
-                }
-            ],
-            "address": {
-                "1": "asdasd",
-                "2": ""
-            },
-            "phone": "01155991822",
-            "firstName": "asdasd",
-            "lastName": "adsd",
-            "zipcode": "45541",
-            "date": "2025-01-19T10:58:55.928Z"
-        },
-        {
-            "id": "e4a3",
-            "userID": "1",
-            "totalPrice": 2200,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "953a",
-                    "quantity": 44
-                }
-            ],
-            "address": {
-                "1": "asdasd",
-                "2": "asdasd"
-            },
-            "phone": "01155991822",
-            "firstName": "sdsad",
-            "lastName": "asdsad",
-            "zipcode": "44554",
-            "date": "2025-01-19T11:01:01.352Z"
-        },
-        {
-            "id": "00ec",
-            "userID": "1",
-            "totalPrice": 2200,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "953a",
-                    "quantity": 44
-                }
-            ],
-            "address": {
-                "1": "adas",
-                "2": "asd"
-            },
-            "phone": "01155991822",
-            "firstName": "asdasda",
-            "lastName": "dasd",
-            "zipcode": "44554",
-            "date": "2025-01-19T11:01:59.144Z"
-        },
-        {
-            "id": "073c",
-            "userID": "1",
-            "totalPrice": 2200,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "953a",
-                    "quantity": 44
-                }
-            ],
-            "address": {
-                "1": "sdfsdf",
-                "2": "sdfsdf"
-            },
-            "phone": "01155991822",
-            "firstName": "fsdfs",
-            "lastName": "dfsdf",
-            "zipcode": "44554",
-            "date": "2025-01-19T11:04:26.993Z"
-        },
-        {
-            "id": "7e75",
-            "userID": "1",
-            "totalPrice": 50,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "e78f",
-                    "quantity": 2
-                }
-            ],
-            "address": {
-                "1": "dgdfg",
-                "2": ""
-            },
-            "phone": "01155991822",
-            "firstName": "gdfgdf",
-            "lastName": "gdg",
-            "zipcode": "44554",
-            "date": "2025-01-19T11:05:52.250Z"
-        },
-        {
-            "id": "8bb9",
-            "userID": "1",
-            "totalPrice": 100,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "953a",
-                    "quantity": 2
-                }
-            ],
-            "address": {
-                "1": "asdasd",
-                "2": "dgfd"
-            },
-            "phone": "01155991822",
-            "firstName": "trtgdf",
-            "lastName": "fdgdf",
-            "zipcode": "44554",
-            "date": "2025-01-19T11:06:21.163Z"
-        },
-        {
-            "id": "a5d6",
-            "userID": "1",
-            "totalPrice": 2200,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "953a",
-                    "quantity": 44
-                }
-            ],
-            "address": {
-                "1": "zxcc",
-                "2": "zxczx"
-            },
-            "phone": "01155991822",
-            "firstName": "zcxxcz",
-            "lastName": "zxcxz",
-            "zipcode": "44554",
-            "date": "2025-01-19T11:07:54.211Z"
-        },
-        {
-            "id": "6c1d",
-            "userID": "1",
-            "totalPrice": 50,
-            "status": "placed",
-            "items": [
-                {
-                    "productID": "e78f",
-                    "quantity": 2
-                }
-            ],
-            "address": {
-                "1": "dasdasd",
-                "2": "adas"
-            },
-            "phone": "01155991822",
-            "firstName": "fnbvn",
-            "lastName": "asdas",
-            "zipcode": "44554",
-            "date": "2025-01-19T11:08:40.796Z"
-        }
-    ],
-    "categories": [
-        {
-            "id": "2",
-            "name": "Fire"
-        },
-        {
-            "id": "1",
-            "name": "Water"
-        },
-        {
-            "id": "3",
-            "name": "Earth"
-        }
-    ],
-    "carts": [
-        {
-            "userID": "1",
-            "items": [
-                {
-                    "productID": "6c1d",
-                    "quantity": 1
-                },
-                {
-                    "productID": "a5d6",
-                    "quantity": 1
-                }
-            ],
-            "id": "dc10"
-        }
-    ],
-    "wishlists": []
+      ],
+      "id": "dc10"
+    }
+  ],
+  "wishlists": []
 }

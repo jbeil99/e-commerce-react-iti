@@ -5,7 +5,8 @@ const baseURL = "http://localhost:3000/carts";
 const getCart = (cartID) => axios.get(`${baseURL}/${cartID}`);
 const addUserCart = (userID) => axios.post(`${baseURL}`, { userID, items: [] });
 const deleteCartProduct = async (cartID, productID) => {
-    const cart = await getCart(cartID);
+    const res = await getCart(cartID);
+    const cart = res.data;
     return axios.put(`${baseURL}/${cartID}`, {
         userID: cart.userID,
         items: cart.items.filter(item => item.productID !== productID)
@@ -23,7 +24,8 @@ const checkProduct = (items, productID) => {
 }
 
 const addProductToCart = async (cartID, productID, quantity = 1) => {
-    const cart = await getCart(cartID);
+    const res = await getCart(cartID);
+    const cart = res.data;
     const items = [...cart.items];
 
     if (checkProduct(items, productID)) {
@@ -43,7 +45,8 @@ const addProductToCart = async (cartID, productID, quantity = 1) => {
 };
 
 const updateCartItemsQuantity = async (cartID, productID, quantity = 1, userID) => {
-    const cart = await getCart(cartID);
+    const res = await getCart(cartID);
+    const cart = res.data;
 
     const items = cart.items.map(item =>
         item.productID === productID ? { ...item, quantity } : item
@@ -83,11 +86,3 @@ export {
     addProdcutToLocalStorageCart,
     updateCartItemsQuantity
 };
-
-
-
-
-
-
-
-// export { updateCartItemsQuantity, addProductToCart, addProdcutToLocalStorageCart, addUserCart, deleteCartProduct, getUserCart, getCart, checkProduct, emptyCart };
