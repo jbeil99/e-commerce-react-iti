@@ -75,6 +75,13 @@ h2 {
 
 .product-card__rounded {
   border-radius: 15px !important;
+  cursor: pointer;
+
+}
+
+.product-card__rounded img {
+  max-width: 150px;
+  margin: 0 auto;
 }
 
 .circle {
@@ -380,4 +387,14 @@ ul.nav .nav-item {
 
 .notfound {
   height: 50vh;
+}
+
+
+
+.cart-card img {
+  width: 65px;
+}
+
+.trash {
+  color: #cecece;
 }

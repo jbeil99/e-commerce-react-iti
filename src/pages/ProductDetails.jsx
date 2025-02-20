@@ -14,7 +14,7 @@ export default function ProductDetails() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                let response = await getProductById(id)
+                const response = await getProductById(id)
                 setProduct(response.data)
             } catch (error) {
                 console.log(error);
@@ -45,15 +45,15 @@ export default function ProductDetails() {
             }
         });
     }
+
     return (
         <div className="col-md-9 mx-auto my-5">
             <Link className="btn btn-info mb-2" to={'/shop'}>Back to shop </Link>
-
             <div className="row">
                 <div className="col-sm-12 col-md-12 col-lg-12 col-xl-6 border">
-                    <img src={product.img} className="product-image d-block mx-auto" alt="Product" />
+                    <img src={product.image} className="product-image d-block mx-auto" alt="Product" />
                 </div>
-                <div className=" col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div className=" col-sm-12 col-md-12 col-lg-6 col-xl-6 ps-5">
                     <h3>{product.name}</h3>
                     <p>{product.description}</p>
                     <div className="ratings mb-3">
@@ -65,7 +65,8 @@ export default function ProductDetails() {
                         <span className="text-muted ml-2">({product.rating})</span>
                     </div>
                     <ul className="list-unstyled">
-                        <li ><strong>Seller:</strong> {product.seller}</li>
+                        <li ><strong>Category:</strong> {product.category?.name}</li>
+                        <li ><strong>Seller:</strong> {product.seller?.name}</li>
                         <li ><strong>Quantity:</strong> {product.quantity}</li>
                     </ul>
                     <div className="row">
@@ -83,7 +84,6 @@ export default function ProductDetails() {
                             <img src="/images/icon/Eye.png" alt="" />
                         </div>
                     </div>
-                    <div id="paypal-button-container"></div>
                 </div>
             </div>
         </div>

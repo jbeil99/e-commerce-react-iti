@@ -94,7 +94,7 @@
             "customerPrice": 25,
             "quantity": 16,
             "category": {
-                "id": "1",
+                "id": "2",
                 "name": "Fire"
             },
             "image": "https://media.tenor.com/53miymrFe_UAAAAM/hold-on.gif",
@@ -110,29 +110,6 @@
             "createdAt": "2025-01-19T04:38:54.683Z"
         },
         {
-            "id": "e75c",
-            "name": "asdasdasd",
-            "description": "asdasdassadasdasdasdasdsaaaaaaaaaaa",
-            "price": 100,
-            "customerPrice": 180,
-            "quantity": 20,
-            "category": {
-                "id": "1",
-                "name": "Fire"
-            },
-            "image": "https://i.pinimg.com/736x/53/8d/e5/538de5e0da2fc61c6bddb5304bbbc71e.jpg",
-            "rating": 0,
-            "seller": {
-                "id": 1,
-                "name": "Clicon"
-            },
-            "reviews": [],
-            "approved": true,
-            "sold": 0,
-            "sale": 30,
-            "createdAt": "2025-01-19T04:45:27.716Z"
-        },
-        {
             "id": "6292",
             "name": "somic s 16",
             "description": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&shttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&s",
@@ -140,7 +117,7 @@
             "customerPrice": 280,
             "quantity": 3,
             "category": {
-                "id": "1",
+                "id": "2",
                 "name": "Fire"
             },
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&s",
@@ -412,11 +389,11 @@
     ],
     "categories": [
         {
-            "id": "1",
+            "id": "2",
             "name": "Fire"
         },
         {
-            "id": "2",
+            "id": "1",
             "name": "Water"
         },
         {
@@ -427,81 +404,18 @@
     "carts": [
         {
             "userID": "1",
-            "items": [],
-            "id": "1"
-        },
-        {
-            "userID": "20bd",
-            "items": [],
-            "id": "2c8f"
-        },
-        {
-            "userID": "2e61",
             "items": [
                 {
-                    "productID": "e75c",
+                    "productID": "6c1d",
                     "quantity": 1
                 },
                 {
-                    "productID": "6292",
+                    "productID": "a5d6",
                     "quantity": 1
                 }
             ],
             "id": "dc10"
-        },
-        {
-            "userID": "be4b",
-            "items": [
-                {
-                    "productID": "d7ca",
-                    "quantity": 1
-                },
-                {
-                    "productID": "953a",
-                    "quantity": 1
-                }
-            ],
-            "id": "20af"
         }
     ],
-    "wishlists": [
-        {
-            "userID": "1",
-            "items": [
-                {
-                    "productID": "e75c",
-                    "quantity": 1
-                },
-                {
-                    "productID": "6292",
-                    "quantity": 1
-                }
-            ],
-            "id": "1"
-        },
-        {
-            "userID": "20bd",
-            "items": [],
-            "id": "2c8f"
-        },
-        {
-            "userID": "2e61",
-            "items": [
-                {
-                    "productID": "d7ca",
-                    "quantity": 1
-                },
-                {
-                    "productID": "e78f",
-                    "quantity": 1
-                }
-            ],
-            "id": "dc10"
-        },
-        {
-            "userID": "be4b",
-            "items": [],
-            "id": "d7e6"
-        }
-    ]
+    "wishlists": []
 }

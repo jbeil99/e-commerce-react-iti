@@ -11,6 +11,7 @@ const editProduct = (productId, product) =>
 const updateProdcutQuantity = (productId, quantity) => axios.patch(`${baseURL}/${productId}`, quantity);
 const softDeleteProduct = (productId, sellerDeleted = true) => axios.patch(`${baseURL}/${productId}`, { sellerDeleted });
 const toggleApproveProduct = (productId, approved = true) => axios.patch(`${baseURL}/${productId}`, { approved });
+const getCategories = () => axios.get(`http://localhost:3000/categories`);
 
 
 export {
@@ -19,5 +20,8 @@ export {
     addNewProduct,
     deleteProduct,
     editProduct,
-    updateProdcutQuantity
+    updateProdcutQuantity,
+    getCategories,
+    toggleApproveProduct,
+    softDeleteProduct
 };

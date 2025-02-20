@@ -1,0 +1,75 @@
+.shop-section .nav:first-of-type {
+    background-color: #F7F7F8;
+}
+
+.shop-section .dropdown {
+    border: 1px solid #E9E9E9;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+}
+
+.shop-section .pagination li a {
+    color: #777777;
+}
+
+.display-style img {
+    padding: 10px;
+}
+
+
+.shop-section .active {
+    background-color: var(--primary-color);
+
+}
+
+a.active {
+    color: #FFFFFF !important;
+
+}
+
+.display-style p {
+    font-size: 14px;
+    color: #7A7A7A;
+}
+
+.shop-section .dropdown,
+.shop-section .dropdown .btn {
+    color: #7A7A7A;
+}
+
+
+
+@media screen and (max-width: 768px) and (min-width: 590px) {
+
+    .shop-section .card {
+        /* max-width: 350px; */
+        max-width: 45%;
+    }
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+    .shop-section .card {
+        max-width: 30%;
+    }
+
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    .shop-section .card {
+        max-width: 30%;
+    }
+
+}
+
+@media screen and (min-width: 1400px) {
+
+    .shop-section .card {
+        max-width: 900px;
+    }
+
+}

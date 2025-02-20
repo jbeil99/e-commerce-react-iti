@@ -71,8 +71,57 @@ const productSlice = createSlice({
     name: "product",
     initialState,
     reducers: {
-        filter: (state, action) => {
+        search: (state, action) => {
             state.products = state.products.filter(product => product.name.toLowerCase().match(action.payload.toLowerCase()));
+        },
+        filter: (state, action) => {
+            const { category, price } = action.payload
+            if (category == 0 && price == 0) {
+                return
+            }
+            if (category != 0 && price == 0) {
+                state.products = state.products.filter(product => {
+                    console.log(product.category.id, category)
+                    return product.category.id == category
+                })
+            }
+
+            if (category != 0 && price != 0) {
+                console.log('hi')
+                if (price == 1) {
+                    state.products = state.products.filter(product => product.category.id == category && (Number(product.customerPrice) > 20));
+                }
+                if (price == 2) {
+                    state.products = state.products.filter(product =>
+                        product.category.id == category &&
+                        Number(product.customerPrice) >= 20 &&
+                        Number(product.customerPrice) <= 100
+                    );
+                }
+
+                if (price == 3) {
+                    state.products = state.products.filter(product => product.category.id == category && (Number(product.customerPrice) > 100));
+                }
+            }
+            if (category == 0 && price != 0) {
+                console.log(price)
+                if (price == 1) {
+                    state.products = state.products.filter(product => Number(product.customerPrice) > 20);
+                }
+                if (price == 2) {
+                    state.products = state.products.filter(product => {
+                        return Number(product.customerPrice) >= 20 &&
+                            Number(product.customerPrice) <= 100
+                    });
+                }
+                if (price == 3) {
+                    state.products = state.products.filter(product => {
+                        console.log(product.customerPrice)
+                        return Number(product.customerPrice) > 100
+                    });
+                }
+            }
+
         },
         getBestDeals: (state, action) => {
             state.products = state.products.filter(product => Number(product.sale) > action.payload);
@@ -99,4 +148,4 @@ const productSlice = createSlice({
 });
 
 export const productReducer = productSlice.reducer;
-export const { filter, getBestDeals } = productSlice.actions;
+export const { search, getBestDeals, filter } = productSlice.actions;

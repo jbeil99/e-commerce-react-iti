@@ -1,8 +1,11 @@
 import ProductCard from "../components/ProductCard";
 import { useEffect } from 'react';
-import { Link } from "react-router";
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllProductsAction, filter } from '../store/productSlice'
+import { getAllProductsAction, search } from '../store/productSlice'
+import Aside from "../components/Aside";
+import filterIcon from "../assets/icon/filter.png";
+
+
 export default function Shop() {
     let { products, isLoading, errors } = useSelector(store => store.productSlice)
     const dispatch = useDispatch();
@@ -16,26 +19,44 @@ export default function Shop() {
             dispatch(getAllProductsAction());
             return;
         }
-        dispatch(filter(e.target.value));
+        dispatch(search(e.target.value));
     }
 
     return (
-        <section className="product-section px-2 px-lg-0 section-container my-5">
-            <div className="row mb-md-5 mb-3 row-cols-1 row-cols-sm-2 justify-content-between ">
-                <h2 > Products</h2>
-                <ul className="nav justify-content-md-end justify-content-start">
-                    <Link to="/products/0/edit" className='btn btn-outline-primary me-2'>
-                        Add Product
-                    </Link>
-                    <input type="Search" className='w-25 form-control' placeholder='Search ....' onChange={handleSearch} />
-                </ul>
-            </div>
-            <div className="row row-cols-1 row-cols-xxl-5 row-cols-lg-4 row-cols-md-2 justify-content-center gap-3">
-                {isLoading && !errors && <div className='mt-5 alert alert-dark'><h1>Loading ...... </h1></div>}
-                {errors && <div className='mt-5 alert alert-danger'>{errors.message}</div>}
-                {!isLoading && !errors && products.map(product => <ProductCard {...product} key={product.id} btnText="hello" />)}
+        <main className="shop-section  my-5">
+            <div className="container-fluid container-xxl">
+
+                <section className="row  row-cols-1 row-cols-lg-2 justify-content-lg-between justify-content-center align-items-start">
+                    <Aside />
+
+                    <div className="col-lg-9 col-12 col row row-cols-1 justify-content-md-between justify-content-center align-items-center gap-4">
+                        <nav className="navbar navbar-light bg-light col-12 justify-content-lg-between justify-content-center align-items-center px-2 rounded p-2">
+                            <div className="container-fluid">
+                                <form className="d-flex">
+                                    <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={handleSearch} />
+                                    {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
+                                </form>
+
+                                <div className="display-style d-flex gap-2 align-items-center">
+                                    <p className="ms-2 mt-3">We found 29 items for you!</p>
+                                    <button className="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#filter-aside" aria-controls="filter-aside" aria-expanded="false"
+                                        aria-label="Toggle filter">
+                                        <img src={filterIcon} className="d-block d-lg-none" alt="flter" />
+                                    </button>
+                                </div>
+                            </div>
+                        </nav>
+                        <div className="col-12 row row-cols-1 row-cols-md-3 row-cols-xl-4 gap-4 justify-content-center">
+                            {isLoading && !errors && <div className='mt-5 alert alert-dark'><h1>Loading ...... </h1></div>}
+                            {errors && <div className='mt-5 alert alert-danger'>{errors.message}</div>}
+                            {!isLoading && !errors && products.map(product => <ProductCard {...product} key={product.id} />)}
+                        </div>
+                    </div>
+
+                </section>
             </div>
 
-        </section>
+        </main>
     )
 }
