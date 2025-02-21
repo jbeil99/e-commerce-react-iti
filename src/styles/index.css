@@ -417,3 +417,15 @@ ul.nav .nav-item {
   font-size: 10px;
   color: var(--primary-color);
 }
+
+.dashboard {
+  min-height: 50vh;
+}
+
+textarea {
+  height: 100px !important;
+}
+
+#product {
+  max-width: 600px;
+}

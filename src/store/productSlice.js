@@ -4,8 +4,9 @@ import {
     addNewProduct,
     deleteProduct,
     getAllProducts,
-    editProduct
-} from "../api/product";
+    editProduct,
+    updateProductQuantity
+} from "../api/product.js";
 
 const initialState = {
     products: [],
@@ -55,7 +56,7 @@ export const editProductAction = createAsyncThunk(
     "product/addProductAction",
     async (args, { rejectWithValue }) => {
         try {
-            let response = await editProduct(args.id, args.productData);
+            const response = await editProduct(args.id, args.productData);
             return response.data;
         } catch (error) {
             return rejectWithValue(error);
@@ -63,6 +64,18 @@ export const editProductAction = createAsyncThunk(
     }
 );
 
+export const updateProductQuantityAction = createAsyncThunk(
+    "product/updateProductQuantityAction",
+    async (args, { rejectWithValue }) => {
+        try {
+            console.log(args)
+            const response = await updateProductQuantity(args.productID, args.quantity);
+            return response.data;
+        } catch (error) {
+            return rejectWithValue(error);
+        }
+    }
+);
 
 
 
@@ -138,6 +151,13 @@ const productSlice = createSlice({
             state.products = state.products.filter(
                 (product) => product.id != action.payload
             );
+        });
+        builder.addCase(updateProductQuantityAction.fulfilled, (state, action) => {
+            state.products = state.products.forEach(product => {
+                if (product.id === action.payload.id) {
+                    product.quantity = action.payload.quantity
+                }
+            })
         });
     },
 });

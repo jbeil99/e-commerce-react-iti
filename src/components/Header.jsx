@@ -15,7 +15,10 @@ export default function Header() {
     const { user } = useSelector(store => store.userSlice);
     const { cart } = useSelector(store => store.cartSlice);
 
-    const isLoggedIn = Boolean(user);
+    const currentUser = user ? user : JSON.parse(sessionStorage.getItem('user'))
+    const isLoggedIn = Boolean(currentUser);
+    const isAdmin = isLoggedIn && currentUser.role == 'admin' ? true : false;
+
     useEffect(() => {
         dispatch(getCurrentUser());
     }, []);
@@ -41,7 +44,7 @@ export default function Header() {
 
                             <NavLink to="/" className={({ isActive }) => isActive ? "active-green nav-link category-nav" : "nav-link category-nav"}>Home</NavLink>
                             <NavLink to="/shop" className={({ isActive }) => isActive ? " active-green nav-link category-nav" : "nav-link category-nav"}>Shop</NavLink>
-
+                            {isAdmin ? <NavLink to="/dashboard" className={({ isActive }) => isActive ? " active-green nav-link category-nav" : "nav-link category-nav"}>Dashboard</NavLink> : ''}
                         </Nav>
                     </Navbar.Collapse>
                     <ul className="nav justify-content-end gap-3 p-2">
@@ -58,7 +61,7 @@ export default function Header() {
                             </> : <>
                                 <li className="nav-item">
                                     <i className="fa-regular fa-user me-2"></i>
-                                    <p className='category-nav d-inline'>Hello, {user.firstName}</p>
+                                    <p className='category-nav d-inline'>Hello, {user?.firstName}</p>
                                 </li>
                                 <li className="nav-item pointer">
                                     <i className="fa-solid fa-arrow-right-to-bracket me-2"></i>

@@ -7,6 +7,7 @@ import { deleteProductAction } from '../store/productSlice';
 import { useSelector } from 'react-redux';
 import { getCartAction, addProductToCartAction } from '../store/cartSlice';
 import { getCurrentUser } from '../store/userSlice';
+import { addProductToCartSessionAction } from '../store/cartSlice';
 export default function ProductDetails() {
     const { user } = useSelector(store => store.userSlice);
     let { cart, isLoading, errors } = useSelector(store => store.cartSlice)
@@ -29,7 +30,12 @@ export default function ProductDetails() {
             }
         }
         fetchProducts();
-        dispatch(getCartAction(user.id));
+        if (user) {
+            dispatch(getCartAction(user.id));
+        } else {
+            dispatch(getCartAction());
+        }
+
     }, [])
 
     const handleDelete = (e) => {
@@ -56,9 +62,13 @@ export default function ProductDetails() {
 
     const handelAddToCart = (e) => {
         e.stopPropagation();
-        const oldProduct = cart.items.find(item => item.productID === product.id) ?? { quantity: 0 };
+        const oldProduct = cart?.items.find(item => item.productID === product.id) ?? { quantity: 0 };
         if (oldProduct.quantity < product.quantity) {
-            dispatch(addProductToCartAction({ cartID: cart.id, productID: product.id, quantity: 1 }));
+            if (user) {
+                dispatch(addProductToCartAction({ cartID: cart.id, productID: product.id, quantity: 1 }));
+            } else {
+                dispatch(addProductToCartSessionAction(product.id))
+            }
             Swal.fire({
                 title: "Product added to cart!",
                 icon: "success"
@@ -96,7 +106,7 @@ export default function ProductDetails() {
                     </ul>
                     <div className="row">
                         <p className="text-danger font-weight-bold h5 col-auto"><strong
-                        >${product.price}</strong></p>
+                        >${product.customerPrice}</strong></p>
                     </div>
                     <div className="action-buttons">
                         <div>

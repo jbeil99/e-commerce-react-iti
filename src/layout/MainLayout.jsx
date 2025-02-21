@@ -11,10 +11,10 @@ import Register from '../pages/Register';
 import GuestGuard from '../guard/GuestGuard';
 import AuthGuard from '../guard/AuthGuard';
 import AdminGuard from '../guard/AdminGuard';
-import { checkUserAuth } from '../js/guards/userGuard';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getCurrentUser } from '../store/userSlice';
+import Dashboard from '../components/Dashboard';
 export function MainLayout() {
   const { user, isLoading, errors } = useSelector(store => store.userSlice);
   const dispatch = useDispatch();
@@ -22,11 +22,11 @@ export function MainLayout() {
   useEffect(() => {
     dispatch(getCurrentUser())
   }, []);
-
-  const isAuthenticated = Boolean(user);
-  const isAdmin = isAuthenticated && user.role == 'admin' ? true : false;
+  const currentUser = user ? user : JSON.parse(sessionStorage.getItem('user'))
+  const isAuthenticated = Boolean(currentUser);
+  const isAdmin = isAuthenticated && currentUser.role == 'admin' ? true : false;
   return (
-    <BrowserRouter>
+    < BrowserRouter >
       <Routes>
         <Route path='/' element={<SharedLayout />} >
           <Route index element={<Home />} />
@@ -39,13 +39,14 @@ export function MainLayout() {
             <Route path='/register' element={<Register />} />
           </Route>
 
-          <Route element={<AdminGuard isAdmin={!isAdmin} />}>
+          <Route element={<AdminGuard isAdmin={isAdmin} />}>
             <Route path='products/:id/edit' element={<ProductForm />} />
+            <Route path='dashboard' element={<Dashboard />} />
           </Route>
 
           <Route path='*' element={<NotFound />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
   )
 }

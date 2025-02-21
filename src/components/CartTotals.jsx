@@ -6,6 +6,7 @@ import { emptyCartAction } from "../store/cartSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { updateProductQuantity } from "../api/product";
 export default function CartTotals(props) {
     let { user } = useSelector(store => store.userSlice);
     const naviagte = useNavigate();
@@ -29,7 +30,7 @@ export default function CartTotals(props) {
         const currentUser = user ? user : JSON.parse(sessionStorage.getItem('user'));
         if (currentUser) {
             const order = {
-                userID: "1", // TODO: GEt from current user
+                userID: currentUser.id, // TODO: GEt from current user
                 totalPrice: totals.total, // total
                 status: "placed",
                 items: [],
@@ -38,18 +39,22 @@ export default function CartTotals(props) {
                     "2": ""
                 },
                 phone: "01155991822",
-                firstName: "clicon", // TODO: get from user
-                lastName: "clicon",
+                firstName: currentUser.firstName, // TODO: get from user
+                lastName: currentUser.lastName,
                 date: Date.now(),
                 orderCanceld: true
             }
             addOrder({ ...order, items: props.items });
+            props.items.forEach(item => {
+                updateProductQuantity(item.productID, item.quantity).then(res => console.log(res))
+            })
             dispatch(emptyCartAction(props.id));
             Swal.fire({
                 title: "Order Placed",
                 text: "Thank you for using clicon",
                 icon: "success"
             });
+
         } else {
             Swal.fire({
                 title: "Login first to make an order",
