@@ -4,7 +4,6 @@ const currentUser = JSON.parse(sessionStorage.getItem("user"))
 
 const checkUserAuth = () => {
     if (!currentUser) {
-        window.location.href = "/public/pages/login.html";
         return null;
     }
     return currentUser;

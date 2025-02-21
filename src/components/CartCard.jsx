@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { getProductById } from "../api/product"
 import Swal from 'sweetalert2'
-import { deleteCartProductAction } from "../store/cartSlice";
+import { deleteCartProductAction, removeProdcutToSessionCartAction } from "../store/cartSlice";
 import { useDispatch } from 'react-redux';
 import { calcProductTotalPriceAfterDiscount } from "../js/helpers/calcPrices";
 
@@ -30,13 +30,16 @@ export default function CartCard(props) {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                console.log(e.target)
-                dispatch(deleteCartProductAction({ cartID: e.target.dataset.cart, productID: e.target.dataset.id }));
-                Swal.fire({
-                    title: "Deleted!",
-                    text: "Product has been deleted",
-                    icon: "success"
-                });
+                if (e.target.dataset.cart) {
+                    dispatch(deleteCartProductAction({ cartID: e.target.dataset.cart, productID: e.target.dataset.id }));
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Product has been deleted",
+                        icon: "success"
+                    });
+                } else {
+                    dispatch(removeProdcutToSessionCartAction(e.target.dataset.id))
+                }
             }
         });
     }

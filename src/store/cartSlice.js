@@ -1,29 +1,28 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import {
-    getCart,
-    addUserCart,
     deleteCartProduct,
     emptyCart,
-    checkProduct,
     addProductToCart,
-    addProdcutToLocalStorageCart,
-    updateCartItemsQuantity
+    updateCartItemsQuantity,
+    getUserCart,
+    addProdcutToSessionCart,
+    removeProdcutToSessionCart
 } from "../api/cart";
 
 const initialState = {
-    cart: [],
+    cart: null,
     isLoading: true,
     errors: null,
 };
 
 export const getCartAction = createAsyncThunk(
     "cart/getCartAction",
-    async (cartID, thunkAPI) => {
+    async (userID, thunkAPI) => {
         const { rejectWithValue } = thunkAPI;
         try {
-            const response = await getCart(cartID);
-            return response.data;
+            const response = await getUserCart(userID);
+            return response.data.length !== 0 ? response.data[0] : JSON.parse(sessionStorage.getItem('cart'));
         } catch (error) {
             return rejectWithValue(error);
         }
@@ -45,7 +44,6 @@ export const deleteCartProductAction = createAsyncThunk(
     "cart/deleteCartProductAction",
     async (args, { rejectWithValue }) => {
         try {
-            console.log(args)
             const response = await deleteCartProduct(args.cartID, args.productID);
             return response.data;
         } catch (error) {
@@ -58,7 +56,6 @@ export const addProductToCartAction = createAsyncThunk(
     "cart/addProductToCartAction",
     async (args, { rejectWithValue }) => {
         try {
-            console.log(args)
             const response = await addProductToCart(args.cartID, args.productID, args.quantity);
             return response.data;
         } catch (error) {
@@ -83,7 +80,16 @@ export const updateCartItemsQuantityAction = createAsyncThunk(
 const cartSlice = createSlice({
     name: "cart",
     initialState,
-    reducers: {},
+    reducers: {
+        addProductToCartSessionAction: (state, action) => {
+            addProdcutToSessionCart(action.payload);
+            state.cart = JSON.parse(sessionStorage.getItem('cart'));
+        },
+        removeProdcutToSessionCartAction: (state, action) => {
+            removeProdcutToSessionCart(action.payload);
+            state.cart.items = state.cart.items.filter(item => item.productID !== action.payload);
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(getCartAction.pending, (state, action) => {
             state.isLoading = true;
@@ -96,7 +102,12 @@ const cartSlice = createSlice({
             state.isLoading = false;
             state.errors = action.payload;
         });
+        builder.addCase(emptyCartAction.fulfilled, (state, action) => {
+            state.isLoading = false;
+            state.cart = { id: action.payload.id, items: [] };
+        });
     },
 });
 
 export const cartReducer = cartSlice.reducer;
+export const { addProductToCartSessionAction, removeProdcutToSessionCartAction } = cartSlice.actions;

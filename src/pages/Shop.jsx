@@ -38,7 +38,7 @@ export default function Shop() {
                                 </form>
 
                                 <div className="display-style d-flex gap-2 align-items-center">
-                                    <p className="ms-2 mt-3">We found 29 items for you!</p>
+                                    <p className="ms-2 mt-3">We found {products.length} items for you!</p>
                                     <button className="navbar-toggler d-block d-lg-none" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#filter-aside" aria-controls="filter-aside" aria-expanded="false"
                                         aria-label="Toggle filter">

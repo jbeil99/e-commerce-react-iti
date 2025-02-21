@@ -1,8 +1,7 @@
-import { getUsers } from "/public/js/api/user.js";
+import { getUsers } from '../../api/user';
 
 const validatePassword = (password) => {
     const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g;
-    const error = password.parentElement.querySelector("p");
 
     const errorMsg = {
         upper: "Password Must Contain atleast 1 Captial letter",
@@ -10,152 +9,132 @@ const validatePassword = (password) => {
         less: "Password Must be atleast 8 characters"
     }
 
-    if (password.value.match(regex)) {
-        error.style.display = "none"
-        error.innerText = "";
-        return true;
+    if (password.match(regex)) {
+        return { valid: true, msg: '' };
     }
 
-    if (password.value.trim() !== "") {
-        password.focus()
+
+    if (password === password.toLowerCase()) {
+        return { valid: false, msg: errorMsg.upper };
+
+    }
+    if (!password.match(/\d/g)) {
+        return { valid: false, msg: errorMsg.num };
     }
 
-    if (password.value === password.value.toLowerCase()) {
-        error.innerText = errorMsg.upper;
-    }
-    if (!password.value.match(/\d/g)) {
-        error.innerText = errorMsg.num;
+    if (password.length < 8) {
+        return { valid: false, msg: errorMsg.less };
     }
 
-    if (password.value.length < 8) {
-        error.innerText = errorMsg.less;
-    }
-    error.style.display = "block";
-
-    return false;
+    return { valid: false, msg: ` ${errorMsg.upper} <br> ${errorMsg.less} <br> ${errorMsg.num} ` };
 }
 
 const validateConfirmPassword = (confirm, password) => {
-    const error = confirm.parentElement.querySelector("p");
     const errorMsg = "Passwords Doesnt Match";
-
-    if (confirm.value === password.value && confirm.value.trim() !== "") {
-        error.style.display = "none"
-        error.innerText = "";
-        return true
+    if (confirm === password && confirm.trim() !== "") {
+        return { valid: true, msg: '' }
     }
-
-    if (password.value.trim() === "") {
-        password.focus();
-    }
-    error.style.display = "block";
-    error.innerText = errorMsg;
-    return false;
+    return { valid: false, msg: errorMsg };
 }
 
 const validateName = (target, field = "name", n = 2,) => {
-    const error = target.parentElement.querySelector("p");
     const regex = new RegExp(`[a-zA-z]{${n},}`, 'g');
     const errorMsg = {
         less: `${field} Cant be less than ${n} letters`,
         num: "You cant Enter Numbers as a name"
     }
 
-    if (target.value.trim().match(regex)) {
-        error.style.display = "none"
-        error.innerText = "";
-        return true;
+    if (target.trim().match(regex)) {
+        return { valid: true, msg: '' };
     }
 
-    // TODO: Fix bug in firefox
-    if (target.value.trim() !== "") {
-        target.focus()
-    }
-    error.style.display = "block";
-    error.innerText = errorMsg.less;
-    if (!isNaN(Number(target.value))) {
-        error.innerText = errorMsg.num;
+    if (!isNaN(Number(target))) {
+        return { valid: false, msg: errorMsg.num };
     }
 
-    return false;
+    return { valid: false, msg: errorMsg.less };
 }
 
 const validateEmail = async (email, skip) => {
-    const error = email.parentElement.querySelector("p");
     const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const errorMsg = "Enter a Vaild Email address";
-    const users = await getUsers()
+    const res = await getUsers()
+    const users = res.data;
     let exists = false;
 
     users.forEach(user => {
         if (user.email === skip) {
             return
         }
-
-        if (email.value === user.email) {
+        if (email === user.email) {
             exists = true;
         }
     });
+
     if (exists) {
-        error.style.display = "block"
-        error.innerText = "Email is Already used";
-        return false;
+        return { valid: false, msg: 'Email already has an account' };
     }
 
-    if (email.value.trim().match(regex)) {
-        error.style.display = "none"
-        error.innerText = "";
-        return true;
+    if (email.trim().match(regex)) {
+        return { valid: true, msg: '' };
     }
 
-    // TODO: Fix bug in firefox
-    if (email.value.trim() !== "") {
-        email.focus()
-    }
-    error.innerText = errorMsg;
-    error.style.display = "block";
-
-    return false;
+    return { valid: false, msg: errorMsg };
 }
 
 
 
 const valdaiteUsername = async (username, skip = "") => {
-    const error = username.parentElement.querySelector("p");
-
     let exists = false;
-    const users = await getUsers()
+    const res = await getUsers()
+    const users = res.data;
+
     users.forEach(user => {
         if (user.username === skip) {
             return
         }
-        if (username.value === user.username) {
+        if (username === user.username) {
             exists = true;
         }
     });
     if (!exists) {
         return validateName(username, "username", 3)
     }
-    error.innerText = "Username Already Exists";
-    error.style.display = "block";
-    username.focus()
-    return false
+
+    return { valid: false, msg: "Username Already Exists" }
 }
 
 
 const handleRegister = async (username, password, firstName, lastName, email, conPassword) => {
     const exists = await valdaiteUsername(username);
-    return exists &&
-        validatePassword(password) &&
-        await validateEmail(email) &&
-        validateConfirmPassword(conPassword, password) &&
-        validateName(firstName) &&
-        validateName(lastName)
+    const vpassword = validatePassword(password);
+    const vCPassord = validateConfirmPassword(conPassword, password);
+    const vFisrtName = validateName(firstName);
+    const vLastName = validateName(lastName);
+    const vEmail = await validateEmail(email);
+    const msg = {
+        username: exists,
+        password: vpassword,
+        cpassword: vCPassord,
+        firstName: vFisrtName,
+        lastName: vLastName,
+        email: vEmail
+
+    }
+    const allVaild = exists.valid &&
+        vpassword.valid &&
+        vEmail.valid &&
+        vCPassord.valid &&
+        vFisrtName.valid &&
+        vLastName.valid
+
+    return { allVaild, ...msg }
+
 }
 
 const handleSave = async (username, password, firstName, lastName, email, conPassword, skip, skipEmail) => {
     const exists = await valdaiteUsername(username, skip);
-    if (password.value.trim() === "" && conPassword.value.trim() === "") {
+    if (password.trim() === "" && conPassword.trim() === "") {
         return exists &&
             await validateEmail(email, skipEmail) &&
             validateName(firstName) &&

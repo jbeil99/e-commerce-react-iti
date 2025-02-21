@@ -4,8 +4,16 @@ import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2'
 import { useDispatch } from 'react-redux';
 import { deleteProductAction } from '../store/productSlice';
-
+import { useSelector } from 'react-redux';
+import { getCartAction, addProductToCartAction } from '../store/cartSlice';
+import { getCurrentUser } from '../store/userSlice';
 export default function ProductDetails() {
+    const { user } = useSelector(store => store.userSlice);
+    let { cart, isLoading, errors } = useSelector(store => store.cartSlice)
+
+    const isAuthenticated = Boolean(user);
+    const isAdmin = isAuthenticated && user.role == 'admin' ? true : false;
+
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     const navigate = useNavigate();
@@ -21,6 +29,7 @@ export default function ProductDetails() {
             }
         }
         fetchProducts();
+        dispatch(getCartAction(user.id));
     }, [])
 
     const handleDelete = (e) => {
@@ -40,12 +49,28 @@ export default function ProductDetails() {
                     text: "Product has been deleted",
                     icon: "success"
                 });
-
                 navigate('/shop')
             }
         });
     }
 
+    const handelAddToCart = (e) => {
+        e.stopPropagation();
+        const oldProduct = cart.items.find(item => item.productID === product.id) ?? { quantity: 0 };
+        if (oldProduct.quantity < product.quantity) {
+            dispatch(addProductToCartAction({ cartID: cart.id, productID: product.id, quantity: 1 }));
+            Swal.fire({
+                title: "Product added to cart!",
+                icon: "success"
+            });
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Cant add more of this product to cart",
+                footer: '<a href="/cart">Check your cart to checkout</a>'
+            });
+        }
+    }
     return (
         <div className="col-md-9 mx-auto my-5">
             <Link className="btn btn-info mb-2" to={'/shop'}>Back to shop </Link>
@@ -75,8 +100,13 @@ export default function ProductDetails() {
                     </div>
                     <div className="action-buttons">
                         <div>
-                            <button className="btn btn-danger me-2" onClick={handleDelete} data-id={product.id}>Delete</button>
-                            <Link className="btn btn-warning" to={'edit'}>Edit</Link>
+
+                            {isAdmin ? <>
+                                <button className="btn btn-danger me-2" onClick={handleDelete} data-id={product.id}>Delete</button>
+                                <Link className="btn btn-warning me-2" to={'edit'}>Edit</Link>
+
+                            </> : ''}
+                            <button className="btn btn-primary me-2" onClick={handelAddToCart} data-id={product.id}>add To cart</button>
 
                         </div>
                         <div className="icon-buttons">

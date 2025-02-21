@@ -6,7 +6,6 @@ const calacPrices = async (items, shipping = 0, discount = 0) => {
         const res = await getProductById(item.productID);
         const product = res.data;
         const productTotal = Number(calcProductTotalPriceAfterDiscount(product, item.quantity));
-        console.log(productTotal);
         subtotal += productTotal;
     });
     await Promise.all(promises);
@@ -16,7 +15,9 @@ const calacPrices = async (items, shipping = 0, discount = 0) => {
 }
 
 const calcProductTotalPriceAfterDiscount = (product, quantity = 1) => {
-    return ((1 - (product.sale / 100)) * product.customerPrice * quantity).toFixed(2)
+    if (product) {
+        return ((1 - (product.sale / 100)) * product.customerPrice * quantity).toFixed(2)
+    }
 }
 
 

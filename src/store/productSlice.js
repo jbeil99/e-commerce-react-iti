@@ -56,7 +56,6 @@ export const editProductAction = createAsyncThunk(
     async (args, { rejectWithValue }) => {
         try {
             let response = await editProduct(args.id, args.productData);
-            console.log(args);
             return response.data;
         } catch (error) {
             return rejectWithValue(error);
@@ -81,13 +80,11 @@ const productSlice = createSlice({
             }
             if (category != 0 && price == 0) {
                 state.products = state.products.filter(product => {
-                    console.log(product.category.id, category)
                     return product.category.id == category
                 })
             }
 
             if (category != 0 && price != 0) {
-                console.log('hi')
                 if (price == 1) {
                     state.products = state.products.filter(product => product.category.id == category && (Number(product.customerPrice) > 20));
                 }
@@ -104,7 +101,6 @@ const productSlice = createSlice({
                 }
             }
             if (category == 0 && price != 0) {
-                console.log(price)
                 if (price == 1) {
                     state.products = state.products.filter(product => Number(product.customerPrice) > 20);
                 }
@@ -116,7 +112,6 @@ const productSlice = createSlice({
                 }
                 if (price == 3) {
                     state.products = state.products.filter(product => {
-                        console.log(product.customerPrice)
                         return Number(product.customerPrice) > 100
                     });
                 }

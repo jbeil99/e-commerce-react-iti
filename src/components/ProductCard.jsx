@@ -1,20 +1,53 @@
-import { useNavigate} from 'react-router'
-import { addProductToCartAction } from '../store/cartSlice';
-import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router'
+import { addProductToCartAction, addProductToCartSessionAction } from '../store/cartSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { calcProductTotalPriceAfterDiscount } from '../js/helpers/calcPrices';
+import { useEffect } from 'react';
+import { getCartAction } from '../store/cartSlice';
+import Swal from 'sweetalert2';
+import { getCurrentUser } from '../store/userSlice';
+import { addProdcutToSessionCart } from '../api/cart';
 
 export default function ProductCard(product) {
+    let { cart, isLoading, errors } = useSelector(store => store.cartSlice)
+    let { user } = useSelector(store => store.userSlice);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+
+
+    useEffect(() => {
+        dispatch(getCurrentUser())
+        dispatch(getCartAction(user?.id));
+    }, [])
+
     const handleClick = (e) => {
         e.stopPropagation();
         navigate(`/products/${product.id}`)
 
     }
-   
+
+
     const handleCart = (e) => {
         e.stopPropagation();
-        dispatch(addProductToCartAction({cartID: 'dc10', productID: product.id, quantity: 1}))
+        const oldProduct = cart?.items.find(item => item.productID === product.id) ?? { quantity: 0 };
+        if (oldProduct.quantity < product.quantity) {
+            if (user) {
+                dispatch(addProductToCartAction({ cartID: cart.id, productID: product.id, quantity: 1 }));
+            } else {
+                dispatch(addProductToCartSessionAction(product.id))
+            }
+            Swal.fire({
+                title: "Product added to cart!",
+                icon: "success"
+            });
+        } else {
+            Swal.fire({
+                icon: "error",
+                title: "Cant add more of this product to cart",
+                footer: '<a href="/cart">Check your cart to checkout</a>'
+            });
+        }
     }
     return (
         <div className={`card hot product-card__rounded col ${product.responsive}`}>
@@ -38,8 +71,14 @@ export default function ProductCard(product) {
                 <div className="row">
                     <p className="text-success font-weight-bold h5 col-auto">${calcProductTotalPriceAfterDiscount(product)} <span
                         className="text-muted h6 text-decoration-line-through ml-2 ">${product.customerPrice}</span></p>
-                    <a href="#" className="btn btn-primary rounded ms-auto col-auto" onClick={handleCart}>
-                        <i className="fa-solid fa-cart-shopping" ></i>add</a>
+                </div>
+                <div>
+                    {product.quantity > 0
+                        ? <a href="#" className="btn btn-primary rounded ms-auto col-12" onClick={handleCart}>
+                            <i className="fa-solid fa-cart-shopping" ></i>add</a>
+                        : <button href="#" className="btn btn-disabled  rounded ms-auto col-12" onClick={handleCart} disabled>
+                            <i className="fa-solid fa-cart-shopping" ></i>Out of Stock</button>
+                    }
                 </div>
             </div>
         </div>

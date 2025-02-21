@@ -36,6 +36,33 @@
       "lastName": "hosny",
       "email": "hosn@clicon.com",
       "role": "manger"
+    },
+    {
+      "id": "f9bd",
+      "firstName": "asdasd",
+      "username": "asdas",
+      "password": "QuackLEL22",
+      "lastName": "asda",
+      "email": "teez@gmail.com",
+      "role": "customer"
+    },
+    {
+      "id": "57e1",
+      "firstName": "asda",
+      "username": "jbeil99",
+      "password": "QuackLEL22",
+      "lastName": "dasdas",
+      "email": "tee2z@gmail.com",
+      "role": "customer"
+    },
+    {
+      "id": "cc32",
+      "firstName": "cart",
+      "username": "cart",
+      "password": "QuackLEL22",
+      "lastName": "cart",
+      "email": "cart@cart.com",
+      "role": "customer"
     }
   ],
   "products": [
@@ -135,18 +162,22 @@
   ],
   "orders": [
     {
-      "id": "8236",
+      "id": "010b",
       "userID": "1",
-      "totalPrice": 50,
+      "totalPrice": 187,
       "status": "placed",
       "items": [
         {
-          "productID": "953a",
+          "productID": "d7ca",
+          "quantity": 1
+        },
+        {
+          "productID": "e78f",
           "quantity": 1
         },
         {
           "productID": "6292",
-          "quantity": 10
+          "quantity": 1
         }
       ],
       "address": {
@@ -156,22 +187,26 @@
       "phone": "01155991822",
       "firstName": "clicon",
       "lastName": "clicon",
-      "date": 1740044153888,
+      "date": 1740164361479,
       "orderCanceld": true
     },
     {
-      "id": "c06d",
-      "userID": "1",
-      "totalPrice": 1180,
+      "id": "10",
+      "userID": "2",
+      "totalPrice": 187,
       "status": "placed",
       "items": [
         {
-          "productID": "953a",
+          "productID": "d7ca",
+          "quantity": 1
+        },
+        {
+          "productID": "e78f",
           "quantity": 1
         },
         {
           "productID": "6292",
-          "quantity": 10
+          "quantity": 1
         }
       ],
       "address": {
@@ -181,7 +216,7 @@
       "phone": "01155991822",
       "firstName": "clicon",
       "lastName": "clicon",
-      "date": 1740044179023,
+      "date": 1740164361479,
       "orderCanceld": true
     }
   ],
@@ -204,23 +239,16 @@
       "userID": "1",
       "items": [
         {
-          "productID": "953a",
-          "quantity": 2
-        },
-        {
-          "productID": "6292",
-          "quantity": 10
-        },
-        {
           "productID": "d7ca",
-          "quantity": 1
-        },
-        {
-          "productID": "e78f",
-          "quantity": 5
+          "quantity": 6
         }
       ],
       "id": "dc10"
+    },
+    {
+      "id": "735d",
+      "userID": "cc32",
+      "items": []
     }
   ],
   "wishlists": []

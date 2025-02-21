@@ -3,7 +3,10 @@ import axios from "axios";
 const baseURL = "http://localhost:3000/carts";
 
 const getCart = (cartID) => axios.get(`${baseURL}/${cartID}`);
+const getUserCart = (userID) => axios.get(`${baseURL}?userID=${userID}`);
 const addUserCart = (userID) => axios.post(`${baseURL}`, { userID, items: [] });
+const updateUserCart = (cartID, cart) => axios.patch(`${baseURL}/${cartID}`, cart);
+
 const deleteCartProduct = async (cartID, productID) => {
     const res = await getCart(cartID);
     const cart = res.data;
@@ -13,7 +16,7 @@ const deleteCartProduct = async (cartID, productID) => {
     });
 };
 
-const emptyCart = (id) => axios.patch(`http://localhost:3000/carts/${id}`, { items: [] });
+const emptyCart = (id) => axios.patch(`${baseURL}/${id}`, { items: [] });
 
 const checkProduct = (items, productID) => {
     for (let item of items) {
@@ -26,7 +29,6 @@ const checkProduct = (items, productID) => {
 const addProductToCart = async (cartID, productID, quantity = 1) => {
     const res = await getCart(cartID);
     const cart = res.data;
-    console.log(cartID)
     const items = [...cart.items];
 
     if (checkProduct(items, productID)) {
@@ -57,8 +59,12 @@ const updateCartItemsQuantity = async (cartID, productID, quantity = 1, userID) 
 };
 
 
-const addProdcutToLocalStorageCart = (productID, quantity = 1) => {
-    const cart = JSON.parse(localStorage.getItem("cart"));
+const addProdcutToSessionCart = (productID, quantity = 1) => {
+    const cart = JSON.parse(sessionStorage.getItem("cart"));
+    if (!cart) {
+        console.log('hello')
+        sessionStorage.setItem('cart', JSON.stringify({ items: [] }))
+    }
     const items = cart.items;
     if (checkProduct(items, productID)) {
         items.forEach(item => {
@@ -72,9 +78,17 @@ const addProdcutToLocalStorageCart = (productID, quantity = 1) => {
             quantity
         })
     }
-    localStorage.setItem("cart", JSON.stringify({
+    sessionStorage.setItem("cart", JSON.stringify({
         items
-    }))
+    }));
+}
+const removeProdcutToSessionCart = (productID) => {
+    const cart = JSON.parse(sessionStorage.getItem("cart"));
+    if (cart) {
+        const items = cart.items.filter(item => item.productID !== productID);
+        const newCart = { items };
+        sessionStorage.setItem('cart', JSON.stringify(newCart))
+    }
 }
 
 export {
@@ -84,6 +98,9 @@ export {
     emptyCart,
     checkProduct,
     addProductToCart,
-    addProdcutToLocalStorageCart,
-    updateCartItemsQuantity
+    addProdcutToSessionCart,
+    updateCartItemsQuantity,
+    getUserCart,
+    removeProdcutToSessionCart,
+    updateUserCart
 };
