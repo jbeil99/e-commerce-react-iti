@@ -26,6 +26,7 @@ const checkProduct = (items, productID) => {
 const addProductToCart = async (cartID, productID, quantity = 1) => {
     const res = await getCart(cartID);
     const cart = res.data;
+    console.log(cartID)
     const items = [...cart.items];
 
     if (checkProduct(items, productID)) {

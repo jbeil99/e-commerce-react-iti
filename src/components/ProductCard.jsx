@@ -1,16 +1,20 @@
-import { useNavigate } from 'react-router'
-
+import { useNavigate} from 'react-router'
+import { addProductToCartAction } from '../store/cartSlice';
+import { useDispatch } from 'react-redux';
+import { calcProductTotalPriceAfterDiscount } from '../js/helpers/calcPrices';
 
 export default function ProductCard(product) {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const handleClick = (e) => {
         e.stopPropagation();
         navigate(`/products/${product.id}`)
 
     }
+   
     const handleCart = (e) => {
         e.stopPropagation();
-        console.log('added to cart')
+        dispatch(addProductToCartAction({cartID: 'dc10', productID: product.id, quantity: 1}))
     }
     return (
         <div className={`card hot product-card__rounded col ${product.responsive}`}>
@@ -32,8 +36,8 @@ export default function ProductCard(product) {
                 </div>
                 <p className="card-text text-danger mt-2"><span className="text-muted">By</span> {product.seller?.name}</p>
                 <div className="row">
-                    <p className="text-success font-weight-bold h5 col-auto">${product.customerPrice} <span
-                        className="text-muted h6 text-decoration-line-through ml-2 ">$32.8</span></p>
+                    <p className="text-success font-weight-bold h5 col-auto">${calcProductTotalPriceAfterDiscount(product)} <span
+                        className="text-muted h6 text-decoration-line-through ml-2 ">${product.customerPrice}</span></p>
                     <a href="#" className="btn btn-primary rounded ms-auto col-auto" onClick={handleCart}>
                         <i className="fa-solid fa-cart-shopping" ></i>add</a>
                 </div>

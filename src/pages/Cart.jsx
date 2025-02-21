@@ -3,6 +3,7 @@ import CartCard from "../components/CartCard"
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartAction } from '../store/cartSlice'
+import CartTotals from "../components/CartTotals";
 
 export default function Cart() {
     let { cart, isLoading, errors } = useSelector(store => store.cartSlice)
@@ -25,7 +26,7 @@ export default function Cart() {
                             <div className="d-flex justify-content-between align-items-center mb-4">
                                 <div>
                                     <p className="mb-1">Shopping cart</p>
-                                    <p className="mb-0">You have 4 items in your cart</p>
+                                    <p className="mb-0">You have {cart.items?.length} items in your cart</p>
                                 </div>
 
                             </div>
@@ -34,32 +35,7 @@ export default function Cart() {
                                 return <CartCard {...item} key={item.productID} cartID={cart.id} />
                             }) : 'Loading'}
                         </div>
-                        <div className="col-lg-5">
-                            <div className="card bg-primary text-white rounded-3">
-                                <div className="card-body">
-                                    <hr className="my-4" />
-                                    <div className="d-flex justify-content-between">
-                                        <p className="mb-2">Subtotal</p>
-                                        <p className="mb-2">$4798.00</p>
-                                    </div>
-
-                                    <div className="d-flex justify-content-between">
-                                        <p className="mb-2">Shipping</p>
-                                        <p className="mb-2">$20.00</p>
-                                    </div>
-
-                                    <div className="d-flex justify-content-between mb-4">
-                                        <p className="mb-2">Total(Incl. taxes)</p>
-                                        <p className="mb-2">$4818.00</p>
-                                    </div>
-
-                                    <button type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-primary  btn-lg">
-                                        Checkout <i className="fas fa-long-arrow-alt-right ms-2"></i>
-                                    </button>
-
-                                </div>
-                            </div>
-                        </div>
+                        <CartTotals {...cart}/>
                     </div>
                 </div>
             </div>

@@ -133,7 +133,58 @@
       "createdAt": "2025-01-19T04:50:22.093Z"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "8236",
+      "userID": "1",
+      "totalPrice": 50,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "953a",
+          "quantity": 1
+        },
+        {
+          "productID": "6292",
+          "quantity": 10
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "clicon",
+      "lastName": "clicon",
+      "date": 1740044153888,
+      "orderCanceld": true
+    },
+    {
+      "id": "c06d",
+      "userID": "1",
+      "totalPrice": 1180,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "953a",
+          "quantity": 1
+        },
+        {
+          "productID": "6292",
+          "quantity": 10
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "clicon",
+      "lastName": "clicon",
+      "date": 1740044179023,
+      "orderCanceld": true
+    }
+  ],
   "categories": [
     {
       "id": "2",
@@ -154,7 +205,19 @@
       "items": [
         {
           "productID": "953a",
+          "quantity": 2
+        },
+        {
+          "productID": "6292",
+          "quantity": 10
+        },
+        {
+          "productID": "d7ca",
           "quantity": 1
+        },
+        {
+          "productID": "e78f",
+          "quantity": 5
         }
       ],
       "id": "dc10"

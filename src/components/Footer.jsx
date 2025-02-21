@@ -1,4 +1,4 @@
-import logo from '../assets/icon/Logo.png';
+import logo from '../assets/icon/logo.png';
 import socials_1 from '../assets/icon/Link 1.png';
 import socials_2 from '../assets/icon/Link 2.png';
 import socials_3 from '../assets/icon/Link 3.png';

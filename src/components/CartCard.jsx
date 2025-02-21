@@ -3,6 +3,7 @@ import { getProductById } from "../api/product"
 import Swal from 'sweetalert2'
 import { deleteCartProductAction } from "../store/cartSlice";
 import { useDispatch } from 'react-redux';
+import { calcProductTotalPriceAfterDiscount } from "../js/helpers/calcPrices";
 
 export default function CartCard(props) {
     const [product, setProduct] = useState(null);
@@ -61,7 +62,7 @@ export default function CartCard(props) {
                             <h5 className="fw-normal mb-0 me-3 border py-2 px-4">{props.quantity}</h5>
                         </div>
                         <div >
-                            <h5 className="mb-0 me-3">${product?.customerPrice}</h5>
+                            <h5 className="mb-0 me-3">{props?.quantity} x ${calcProductTotalPriceAfterDiscount(product)}</h5>
                         </div>
                         <button href="#!" className="trash btn" data-id={props.productID} data-cart={props.cartID} onClick={handleDelete}>remove</button>
                     </div>

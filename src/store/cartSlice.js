@@ -58,7 +58,8 @@ export const addProductToCartAction = createAsyncThunk(
     "cart/addProductToCartAction",
     async (args, { rejectWithValue }) => {
         try {
-            const response = await addProductToCartAction(args.cartID, args.productID, args.quantity);
+            console.log(args)
+            const response = await addProductToCart(args.cartID, args.productID, args.quantity);
             return response.data;
         } catch (error) {
             return rejectWithValue(error);
