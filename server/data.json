@@ -72,6 +72,15 @@
       "lastName": "test",
       "email": "z@gmail.com",
       "role": "customer"
+    },
+    {
+      "id": "1075",
+      "firstName": "final",
+      "username": "final",
+      "password": "QuackLEL22",
+      "lastName": "final",
+      "email": "final@final.com",
+      "role": "customer"
     }
   ],
   "products": [
@@ -95,17 +104,17 @@
       "reviews": [],
       "approved": true,
       "sold": 0,
-      "sale": 0,
+      "sale": "2",
       "createdAt": "2025-01-19T04:29:09.343Z",
       "sellerDeleted": false
     },
     {
       "id": "d7ca",
       "name": "pika supder deluxe 2",
-      "description": "Pik pia pikasdasdasd asd",
+      "description": "wwwwwwwwwwwwwwwwwwwwwwwwww",
       "price": 20,
       "customerPrice": 80,
-      "quantity": 47,
+      "quantity": 45,
       "category": {
         "id": "1",
         "name": "Water"
@@ -125,10 +134,10 @@
     {
       "id": "e78f",
       "name": "pika 5th (the retarded one)",
-      "description": "Quacasdasdasdasdasdassssssssss",
+      "description": "wwwwwwwwwwwwwwwwwwwwww",
       "price": 20,
       "customerPrice": 25,
-      "quantity": 7,
+      "quantity": 5,
       "category": {
         "id": "2",
         "name": "Fire"
@@ -167,6 +176,28 @@
       "sold": 0,
       "sale": 60,
       "createdAt": "2025-01-19T04:50:22.093Z"
+    },
+    {
+      "id": "fb56",
+      "name": "picka 1111",
+      "price": "20",
+      "rating": 0,
+      "customerPrice": "50",
+      "category": {
+        "id": 3,
+        "name": "Earth"
+      },
+      "seller": {
+        "id": 1,
+        "name": "clicon"
+      },
+      "quantity": "20",
+      "description": "",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVAzKxbWgB0r6cvTDZBp-jGaE6fmiV2-b2faoY_eRNTN03PaPxdaUUl-kVMkCWp7dn6u1smYTRHfov7kBPWLBwD-LgmDl33t_f0PRJeA",
+      "reviews": [],
+      "sale": "20",
+      "approved": false,
+      "": "ppapsdpaspdaspd"
     }
   ],
   "orders": [
@@ -261,6 +292,77 @@
       "lastName": "Soliman",
       "date": 1740171823607,
       "orderCanceld": true
+    },
+    {
+      "id": "9fac",
+      "userID": "1075",
+      "totalPrice": 140,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "e78f",
+          "quantity": 2
+        },
+        {
+          "productID": "d7ca",
+          "quantity": 2
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "final",
+      "lastName": "final",
+      "date": 1740184533716,
+      "orderCanceld": true
+    },
+    {
+      "id": "82fb",
+      "userID": "1",
+      "totalPrice": 442,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "953a",
+          "quantity": 8
+        },
+        {
+          "productID": "d7ca",
+          "quantity": 1
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "Hussi",
+      "lastName": "Soliman",
+      "date": 1740184602508,
+      "orderCanceld": true
+    },
+    {
+      "id": "d6c2",
+      "userID": "1",
+      "totalPrice": 108,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "953a",
+          "quantity": 2
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "Hussi",
+      "lastName": "Soliman",
+      "date": 1740184619021,
+      "orderCanceld": true
     }
   ],
   "categories": [
@@ -297,6 +399,11 @@
         }
       ],
       "id": "a183"
+    },
+    {
+      "userID": "1075",
+      "items": [],
+      "id": "ddf5"
     }
   ],
   "wishlists": []

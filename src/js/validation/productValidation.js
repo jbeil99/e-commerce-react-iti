@@ -8,7 +8,7 @@ const validateProductName = async (target, seller, skip = "") => {
         if (product.name === skip) {
             return
         }
-        if (product.name.trim() === target.trim() && product.seller_id === seller.id) {
+        if (product.name.trim() === target.trim() && product.seller.id == seller.id) {
             exists = true;
         }
     });
@@ -98,7 +98,8 @@ const handleProduct = async (name, price, custPrice, quantity, discount, image, 
         vPrice.valid &&
         vQuantity.valid &&
         vCustPrice.valid &&
-        vDiscount.valid
+        vDiscount.valid &&
+        vdescription.valid
 
     return { allVaild, ...msg }
 }

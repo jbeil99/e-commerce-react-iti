@@ -39,42 +39,43 @@ export default function Header() {
                     <Link to='/' className='text-decoration-none'><Navbar.Brand  ><img src={logo} alt="" />CLICON</Navbar.Brand></Link>
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav" className=' justify-content-center'>
-                        <Nav className="custom-nav-link">
+                    <Navbar.Collapse id="basic-navbar-nav" className='justify-content-center'>
+                        <Nav className="custom-nav-link ms-auto ">
 
                             <NavLink to="/" className={({ isActive }) => isActive ? "active-green nav-link category-nav" : "nav-link category-nav"}>Home</NavLink>
                             <NavLink to="/shop" className={({ isActive }) => isActive ? " active-green nav-link category-nav" : "nav-link category-nav"}>Shop</NavLink>
                             {isAdmin ? <NavLink to="/dashboard" className={({ isActive }) => isActive ? " active-green nav-link category-nav" : "nav-link category-nav"}>Dashboard</NavLink> : ''}
                         </Nav>
+                        <ul className="nav justify-content-start justify-content-lg-end gap-3 p-2 ms-auto">
+                            {
+                                !isLoggedIn ? <>
+                                    <li className="nav-item">
+                                        <i className="fa-regular fa-user me-2"></i>
+                                        <NavLink to="/login" className={({ isActive }) => isActive ? "active-green category-nav" : "category-nav"}>Login</NavLink>
+                                    </li>
+                                    <li className="nav-item pointer">
+                                        <i className="fa-solid fa-arrow-right-to-bracket me-2"></i>
+                                        <NavLink to="/register" className={({ isActive }) => isActive ? "active-green  category-nav" : " category-nav"}>Register</NavLink>
+                                    </li>
+                                </> : <>
+                                    <li className="nav-item">
+                                        <i className="fa-regular fa-user me-2"></i>
+                                        <p className='category-nav d-inline'>Hello, {user?.firstName}</p>
+                                    </li>
+                                    <li className="nav-item pointer">
+                                        <i className="fa-solid fa-arrow-right-to-bracket me-2"></i>
+                                        <p className='category-nav d-inline' onClick={handLogout}>Log out</p>
+                                    </li>
+                                </>
+                            }
+                            <li className="nav-item">
+                                <i className="fa-solid fa-cart-shopping me-2"></i>
+                                {cart?.items.length > 0 ? <span className='cart-items'>{cart?.items.length}</span> : ''}
+                                <NavLink to="/cart" className={({ isActive }) => isActive ? "active-green  category-nav" : " category-nav"}>Cart</NavLink>
+                            </li>
+                        </ul>
                     </Navbar.Collapse>
-                    <ul className="nav justify-content-end gap-3 p-2">
-                        {
-                            !isLoggedIn ? <>
-                                <li className="nav-item">
-                                    <i className="fa-regular fa-user me-2"></i>
-                                    <NavLink to="/login" className={({ isActive }) => isActive ? "active-green category-nav" : "category-nav"}>Login</NavLink>
-                                </li>
-                                <li className="nav-item pointer">
-                                    <i className="fa-solid fa-arrow-right-to-bracket me-2"></i>
-                                    <NavLink to="/register" className={({ isActive }) => isActive ? "active-green  category-nav" : " category-nav"}>Register</NavLink>
-                                </li>
-                            </> : <>
-                                <li className="nav-item">
-                                    <i className="fa-regular fa-user me-2"></i>
-                                    <p className='category-nav d-inline'>Hello, {user?.firstName}</p>
-                                </li>
-                                <li className="nav-item pointer">
-                                    <i className="fa-solid fa-arrow-right-to-bracket me-2"></i>
-                                    <p className='category-nav d-inline' onClick={handLogout}>Log out</p>
-                                </li>
-                            </>
-                        }
-                        <li className="nav-item">
-                            <i className="fa-solid fa-cart-shopping me-2"></i>
-                            {cart?.items.length > 0 ? <span className='cart-items'>{cart?.items.length}</span> : ''}
-                            <NavLink to="/cart" className={({ isActive }) => isActive ? "active-green  category-nav" : " category-nav"}>Cart</NavLink>
-                        </li>
-                    </ul>
+
                 </div>
             </Navbar>
         </header>
