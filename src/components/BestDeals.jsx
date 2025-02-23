@@ -3,6 +3,7 @@ import ProductCard from './ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProductsAction, getBestDeals } from '../store/productSlice';
 import { useEffect, useState, useMemo } from 'react';
+import { isFiveDaysOld } from '../js/helpers/bagesHelpers';
 
 const makeChunks = (products, chunkSize) => {
     const chunks = [];
@@ -28,6 +29,22 @@ export default function BestDeals() {
     }, [])
     if (!isLoading) {
         items = makeChunks(products, 4);
+    }
+
+    const handleBadge = (product) => {
+        const badge = {
+            name: '',
+            show: false
+        }
+        if (product.sale > 0) {
+            badge.name = 'discount';
+            badge.show = true;
+        }
+        if (isFiveDaysOld(product.createdAt)) {
+            badge.name = 'new';
+            badge.show = true;
+        }
+        return badge;
     }
     return (
         <section className="daily-sells-section px-2 px-lg-0">
@@ -72,7 +89,7 @@ export default function BestDeals() {
                                             x.responsive = "d-none d-lg-block"
                                         }
                                         x = { ...x, ...product }
-                                        return <ProductCard {...x} key={index} />
+                                        return <ProductCard product={x} badge={handleBadge(product)} key={index} />
                                     })}
                                 </div>
                             </Carousel.Item>
