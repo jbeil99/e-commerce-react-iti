@@ -1,11 +1,3 @@
-# E-Commerce React ITI
-
-This is an e-commerce project built with React. Follow the steps below to clone and run the project locally.
-
-## Prerequisites
-- Node.js installed (latest LTS recommended)
-- npm installed (comes with Node.js)
-
 ## Installation and Setup
 
 1. **Clone the Repository**
