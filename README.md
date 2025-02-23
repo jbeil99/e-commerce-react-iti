@@ -1,8 +1,38 @@
-# React + Vite
+# E-Commerce React ITI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is an e-commerce project built with React. Follow the steps below to clone and run the project locally.
 
-Currently, two official plugins are available:
+## Prerequisites
+- Node.js installed (latest LTS recommended)
+- npm installed (comes with Node.js)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation and Setup
+
+1. **Clone the Repository**
+   ```sh
+   git clone https://github.com/jbeil99/e-commerce-react-iti.git
+   cd e-commerce-react-iti
+   ```
+
+2. **Install Dependencies**
+   ```sh
+   npm install
+   ```
+
+3. **Start the JSON Server**
+   ```sh
+   npx json-server server/data.json --port 3000
+   ```
+   Ensure that the JSON server is running on port `3000`. If using a different port, update the base URL for API calls accordingly.
+
+4. **Start the Development Server**
+   ```sh
+   npm run dev
+   ```
+
+## Admin Credentials
+- **Username**: `clicon`
+- **Password**: `admin`
+
+Now the application should be running, and you can log in using the provided admin credentials. Happy coding!
+
