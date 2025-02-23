@@ -26,5 +26,4 @@
 - **Username**: `clicon`
 - **Password**: `admin`
 
-Now the application should be running, and you can log in using the provided admin credentials. Happy coding!
 
