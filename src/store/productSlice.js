@@ -100,33 +100,33 @@ const productSlice = createSlice({
 
             if (category != 0 && price != 0) {
                 if (price == 1) {
-                    state.products = state.products.filter(product => product.category.id == category && (Number(product.customerPrice) > 20));
+                    state.products = state.products.filter(product => product.category.id == category && (Number(product.customerPrice) < 500));
                 }
                 if (price == 2) {
                     state.products = state.products.filter(product =>
                         product.category.id == category &&
-                        Number(product.customerPrice) >= 20 &&
-                        Number(product.customerPrice) <= 100
+                        Number(product.customerPrice) >= 500 &&
+                        Number(product.customerPrice) <= 1000
                     );
                 }
 
                 if (price == 3) {
-                    state.products = state.products.filter(product => product.category.id == category && (Number(product.customerPrice) > 100));
+                    state.products = state.products.filter(product => product.category.id == category && (Number(product.customerPrice) > 1000));
                 }
             }
             if (category == 0 && price != 0) {
                 if (price == 1) {
-                    state.products = state.products.filter(product => Number(product.customerPrice) > 20);
+                    state.products = state.products.filter(product => Number(product.customerPrice) < 500);
                 }
                 if (price == 2) {
                     state.products = state.products.filter(product => {
-                        return Number(product.customerPrice) >= 20 &&
-                            Number(product.customerPrice) <= 100
+                        return Number(product.customerPrice) >= 500 &&
+                            Number(product.customerPrice) <= 1000
                     });
                 }
                 if (price == 3) {
                     state.products = state.products.filter(product => {
-                        return Number(product.customerPrice) > 100
+                        return Number(product.customerPrice) > 1000
                     });
                 }
             }

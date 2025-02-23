@@ -11,8 +11,9 @@ export default function ProductDetails() {
     const { user } = useSelector(store => store.userSlice);
     const { cart } = useSelector(store => store.cartSlice)
 
-    const isAuthenticated = Boolean(user);
-    const isAdmin = isAuthenticated && user.role == 'admin' ? true : false;
+    const currentUser = user ? user : JSON.parse(sessionStorage.getItem('user'));
+    const isAuthenticated = Boolean(currentUser);
+    const isAdmin = isAuthenticated && currentUser.role == 'admin' ? true : false;
 
     const { id } = useParams();
     const [product, setProduct] = useState([]);
@@ -29,14 +30,13 @@ export default function ProductDetails() {
             }
         }
         fetchProducts();
-        if (user) {
-            dispatch(getCartAction(user.id));
+        if (currentUser) {
+            dispatch(getCartAction(currentUser.id));
         } else {
             dispatch(getCartAction());
         }
 
     }, [])
-
     const handleDelete = (e) => {
         Swal.fire({
             title: "Are you sure?",
@@ -63,8 +63,10 @@ export default function ProductDetails() {
         e.stopPropagation();
         const oldProduct = cart?.items.find(item => item.productID === product.id) ?? { quantity: 0 };
         if (oldProduct.quantity < product.quantity) {
-            if (user) {
-                dispatch(addProductToCartAction({ cartID: cart.id, productID: product.id, quantity: 1 }));
+            if (currentUser && cart) {
+                if (cart.id) {
+                    dispatch(addProductToCartAction({ cartID: cart.id, productID: product.id, quantity: 1 }));
+                }
             } else {
                 dispatch(addProductToCartSessionAction(product.id))
             }
@@ -72,6 +74,8 @@ export default function ProductDetails() {
                 title: "Product added to cart!",
                 icon: "success"
             });
+            dispatch(getCartAction(currentUser.id));
+
         } else {
             Swal.fire({
                 icon: "error",
@@ -115,7 +119,13 @@ export default function ProductDetails() {
                                 <Link className="btn btn-warning me-2" to={'edit'}>Edit</Link>
 
                             </> : ''}
-                            <button className="btn btn-primary me-2" onClick={handelAddToCart} data-id={product.id}>add To cart</button>
+
+                            {product.quantity > 0
+                                ? <a href="#" className="btn btn-primary rounded ms-auto " onClick={handelAddToCart}>
+                                    <i className="fa-solid fa-cart-shopping" ></i>add</a>
+                                : <button href="#" className="btn btn-disabled  rounded ms-auto" onClick={handelAddToCart} disabled>
+                                    <i className="fa-solid fa-cart-shopping" ></i>Out of Stock</button>
+                            }
 
                         </div>
                         <div className="icon-buttons">

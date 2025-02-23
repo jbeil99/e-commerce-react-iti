@@ -13,11 +13,9 @@ export default function Shop() {
 
     useEffect(() => {
         dispatch(getAllProductsAction());
-
     }, [])
 
     const handleSearch = (e) => {
-        dispatch(getAllProductsAction());
         if (!e.target.value.trim()) {
             dispatch(getAllProductsAction());
             return;

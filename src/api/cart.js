@@ -60,10 +60,10 @@ const updateCartItemsQuantity = async (cartID, productID, quantity = 1, userID) 
 
 
 const addProdcutToSessionCart = (productID, quantity = 1) => {
-    const cart = JSON.parse(sessionStorage.getItem("cart"));
+    let cart = JSON.parse(sessionStorage.getItem("cart"));
     if (!cart) {
-        console.log('hello')
         sessionStorage.setItem('cart', JSON.stringify({ items: [] }))
+        let cart = JSON.parse(sessionStorage.getItem("cart"));
     }
     const items = cart.items;
     if (checkProduct(items, productID)) {

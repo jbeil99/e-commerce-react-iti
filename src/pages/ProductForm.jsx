@@ -180,9 +180,9 @@ export default function ProductForm() {
                 <div className='col-md-12 my-2'>
                     <label htmlFor="category" className="form-label">Category</label>
                     <select className="form-select " aria-label="Default select example" id='category' name='category' value={productData.category.id} onChange={handleInput}>
-                        <option value="2">Fire</option>
-                        <option value="1">Water</option>
-                        <option value="3">Earth</option>
+                        <option value="4">PCs</option>
+                        <option value="3">Headphones</option>
+                        <option value="2">Laptops</option>
                     </select>
                 </div>
                 <div className="form-floating col-md-12 w-100 ">

@@ -10,299 +10,168 @@
       "id": "1"
     },
     {
-      "id": "20bd",
-      "username": "test",
-      "password": "QuackLEL22",
-      "firstName": "sdasd",
-      "lastName": "asdas",
-      "email": "asdasds2@gmail.com",
-      "role": "customer"
-    },
-    {
-      "id": "2e61",
+      "id": "3a00",
+      "firstName": "hussin",
       "username": "hussin",
       "password": "QuackLEL22",
-      "firstName": "hussin",
-      "lastName": "ahmed",
-      "email": "huss@hu.com",
-      "role": "seller",
-      "approved": true
-    },
-    {
-      "id": "be4b",
-      "username": "hosny",
-      "password": "QuackLEL22",
-      "firstName": "mohamed",
-      "lastName": "hosny",
-      "email": "hosn@clicon.com",
-      "role": "manger"
-    },
-    {
-      "id": "f9bd",
-      "firstName": "asdasd",
-      "username": "asdas",
-      "password": "QuackLEL22",
-      "lastName": "asda",
-      "email": "teez@gmail.com",
+      "lastName": "Ahmed",
+      "email": "hussin@gmail.com",
       "role": "customer"
     },
     {
-      "id": "57e1",
-      "firstName": "asda",
-      "username": "jbeil99",
-      "password": "QuackLEL22",
-      "lastName": "dasdas",
-      "email": "tee2z@gmail.com",
-      "role": "customer"
-    },
-    {
-      "id": "cc32",
-      "firstName": "cart",
-      "username": "cart",
-      "password": "QuackLEL22",
-      "lastName": "cart",
-      "email": "cart@cart.com",
-      "role": "customer"
-    },
-    {
-      "id": "0869",
+      "id": "34bf",
       "firstName": "test",
+      "username": "test",
+      "password": "QuackLEL22",
+      "lastName": "Hussin",
+      "email": "hussin25soli@gmail.com",
+      "role": "customer"
+    },
+    {
+      "id": "3466",
+      "firstName": "test1",
       "username": "clicon2",
       "password": "QuackLEL22",
-      "lastName": "test",
-      "email": "z@gmail.com",
+      "lastName": "Hussin",
+      "email": "hussin25so2li@gmail.com",
       "role": "customer"
     },
     {
-      "id": "1075",
-      "firstName": "final",
-      "username": "final",
+      "id": "2f78",
+      "firstName": "test",
+      "username": "clicon3",
       "password": "QuackLEL22",
-      "lastName": "final",
-      "email": "final@final.com",
+      "lastName": "Hussin",
+      "email": "hussin252soli@gmail.com",
+      "role": "customer"
+    },
+    {
+      "id": "5409",
+      "firstName": "test",
+      "username": "clicon10",
+      "password": "QuackLEL22",
+      "lastName": "Hussin",
+      "email": "hussin225soli@gmail.com",
       "role": "customer"
     }
   ],
   "products": [
     {
-      "id": "953a",
-      "name": "Pikachu",
-      "description": "Pikachu is renowned for being the most well-known and recognizable Pokémon. Over the years, Pikachu has become so popular that it serves as the Pokémon mascot. In the games, Pikachu is the version mascsssot and first partner Pokémon of Pokémon Yellow Special Pikachu Edition and its remake Pokémon: Let's Go, Pikachu!. In the anime, Pikachu appeared regularly as the main travel companion and partner to Ash Ketchum; while another variant, partners alongside Professor Friede in Pokémon Horizons: The Series. ",
-      "price": "25",
-      "customerPrice": "50",
-      "quantity": 0,
-      "category": {
-        "id": "1",
-        "name": "Water"
-      },
-      "image": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcThAQv6vUm8jpXKR_kNbs4hus2u8LVIK8TxohBKPmZehRCEvDrgaxin25ZQAt4ZBobSzAMmjNFApcGHDykX5hrVDVxeD_7yGnKr4Lwq2Qs",
-      "rating": 0,
-      "seller": {
-        "id": 1,
-        "name": "Clicon"
-      },
-      "reviews": [],
-      "approved": true,
-      "sold": 0,
-      "sale": 0,
-      "createdAt": "2025-01-19T04:29:09.343Z",
-      "sellerDeleted": false
-    },
-    {
-      "id": "d7ca",
-      "name": "pika supder deluxe 2",
-      "description": "wwwwwwwwwwwwwwwwwwwwwwwwww",
-      "price": 20,
-      "customerPrice": 80,
-      "quantity": 45,
-      "category": {
-        "id": "1",
-        "name": "Water"
-      },
-      "image": "https://i.pinimg.com/550x/cb/33/49/cb3349b86ca661ca61ae9a36d88d70d4.jpg",
-      "rating": 0,
-      "seller": {
-        "id": 1,
-        "name": "Clicon"
-      },
-      "reviews": [],
-      "approved": true,
-      "sold": 0,
-      "sale": 50,
-      "createdAt": "2025-01-19T04:34:13.656Z"
-    },
-    {
-      "id": "e78f",
-      "name": "pika 5th (the retarded one)",
-      "description": "wwwwwwwwwwwwwwwwwwwwww",
-      "price": 20,
-      "customerPrice": 25,
-      "quantity": 5,
+      "id": "101",
+      "name": "Gaming Laptop X1 2222222",
+      "description": "A high-performance gaming laptop with a powerful GPU and fast refresh rate display.",
+      "price": "1500",
+      "customerPrice": "1800",
+      "quantity": "2",
       "category": {
         "id": "2",
-        "name": "Fire"
+        "name": "Laptops"
       },
-      "image": "https://media.tenor.com/53miymrFe_UAAAAM/hold-on.gif",
-      "rating": 0,
-      "seller": {
-        "id": 1,
-        "name": "Clicon"
-      },
-      "reviews": [],
-      "approved": true,
-      "sold": 0,
-      "sale": 0,
-      "createdAt": "2025-01-19T04:38:54.683Z"
-    },
-    {
-      "id": "6292",
-      "name": "somic s 16",
-      "description": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&shttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&s",
-      "price": 15,
-      "customerPrice": 280,
-      "quantity": 3,
-      "category": {
-        "id": "2",
-        "name": "Fire"
-      },
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSpAZFFum2NF4unRJWrgJWH9RpJ7N-gjiKaA&s",
-      "rating": 0,
+      "image": "https://m.media-amazon.com/images/I/61GfMDJhhhL._AC_SL1500_.jpg",
+      "rating": 4.5,
       "seller": {
         "id": 2,
-        "name": "Hussin"
+        "name": "TechStore"
       },
-      "reviews": [],
-      "approved": true,
-      "sold": 0,
-      "sale": 60,
-      "createdAt": "2025-01-19T04:50:22.093Z"
+      "sale": 15,
+      "createdAt": "2025-01-19T04:29:09.343Z"
     },
     {
-      "id": "fb56",
-      "name": "picka 1111",
-      "price": "20",
-      "rating": 0,
-      "customerPrice": "50",
+      "id": "102",
+      "name": "Ultrabook Z Pro",
+      "description": "A sleek and lightweight ultrabook with a long battery life, perfect for professionals on the go.",
+      "price": "400",
+      "customerPrice": "499",
+      "quantity": "2",
       "category": {
-        "id": 3,
-        "name": "Earth"
+        "id": "2",
+        "name": "Laptops"
       },
+      "image": "https://m.media-amazon.com/images/I/71kr0CP5wvL._AC_SL1500_.jpg",
+      "rating": 4.7,
       "seller": {
-        "id": 1,
-        "name": "clicon"
+        "id": 2,
+        "name": "TechStore"
       },
-      "quantity": "20",
-      "description": "",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVAzKxbWgB0r6cvTDZBp-jGaE6fmiV2-b2faoY_eRNTN03PaPxdaUUl-kVMkCWp7dn6u1smYTRHfov7kBPWLBwD-LgmDl33t_f0PRJeA",
-      "reviews": [],
       "sale": "20",
-      "approved": false,
-      "": "ppapsdpaspdaspd"
+      "createdAt": "2025-01-19T04:29:09.343Z"
     },
     {
-      "id": "8d19",
-      "name": "panadol",
-      "price": "20",
-      "rating": 0,
-      "customerPrice": "50",
+      "id": "104",
+      "name": "Wireless Gaming Headset Viper",
+      "description": "A top-tier wireless gaming headset with ultra-low latency and surround sound.",
+      "price": "250",
+      "customerPrice": "300",
+      "quantity": 6,
       "category": {
-        "id": "1",
-        "name": "Water"
+        "id": "3",
+        "name": "Headphones"
       },
+      "image": "https://m.media-amazon.com/images/I/71ltsViEA8L._AC_SL1500_.jpg",
+      "rating": 4.6,
       "seller": {
-        "id": 1,
-        "name": "clicon"
+        "id": 3,
+        "name": "AudioWorld"
       },
-      "quantity": "25",
-      "description": "ssssssssssssssssssssssssssssssssssss",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEA3221JjRaxvOhz9SsZtBuHUvn4HmeKhjiZD7W6PEOKYIp0x5OCYlNxVKRpp-uyp3VEMYi5DoVnDptS5cEJduTPV_uB9PyAinFRETyg",
-      "reviews": [],
-      "sale": "10",
-      "approved": false,
-      "createdAt": "2025-02-23T00:21:21.725Z"
+      "sale": 0,
+      "createdAt": "2025-01-19T04:29:09.343Z"
+    },
+    {
+      "id": "105",
+      "name": "All-in-One PC 4K Vision",
+      "description": "An all-in-one desktop PC with a stunning 4K display and powerful processor for productivity and entertainment.",
+      "price": "2000",
+      "customerPrice": "2300",
+      "quantity": 4,
+      "category": {
+        "id": "4",
+        "name": "PCs"
+      },
+      "image": "https://m.media-amazon.com/images/I/71MHflD1gsL._AC_SL1500_.jpg",
+      "rating": 4.9,
+      "seller": {
+        "id": 4,
+        "name": "EliteTech"
+      },
+      "sale": 12,
+      "createdAt": "2025-01-19T04:29:09.343Z"
     }
   ],
   "orders": [
     {
-      "id": "8aa4",
-      "userID": "1",
-      "totalPrice": 170,
+      "id": "8d02",
+      "userID": "3a00",
+      "totalPrice": 2962.15,
       "status": "placed",
       "items": [
         {
-          "productID": "d7ca",
-          "quantity": 4
-        }
-      ],
-      "address": {
-        "1": "asdas",
-        "2": ""
-      },
-      "phone": "01155991822",
-      "firstName": "Hussi",
-      "lastName": "Soliman",
-      "date": 1740170971000,
-      "orderCanceld": true
-    },
-    {
-      "id": "2f7a",
-      "userID": "1",
-      "totalPrice": 650,
-      "status": "placed",
-      "items": [
-        {
-          "productID": "d7ca",
-          "quantity": 16
-        }
-      ],
-      "address": {
-        "1": "asdas",
-        "2": ""
-      },
-      "phone": "01155991822",
-      "firstName": "Hussi",
-      "lastName": "Soliman",
-      "date": 1740170999097,
-      "orderCanceld": true
-    },
-    {
-      "id": "aa8f",
-      "userID": "1",
-      "totalPrice": 665,
-      "status": "placed",
-      "items": [
-        {
-          "productID": "e78f",
-          "quantity": 1
-        },
-        {
-          "productID": "4c8a",
-          "quantity": 14
-        }
-      ],
-      "address": {
-        "1": "asdas",
-        "2": ""
-      },
-      "phone": "01155991822",
-      "firstName": "Hussi",
-      "lastName": "Soliman",
-      "date": 1740171774599,
-      "orderCanceld": true
-    },
-    {
-      "id": "f24f",
-      "userID": "1",
-      "totalPrice": 330,
-      "status": "placed",
-      "items": [
-        {
-          "productID": "d7ca",
+          "productID": "102",
           "quantity": 3
         },
         {
-          "productID": "e78f",
-          "quantity": 8
+          "productID": "101",
+          "quantity": 1
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "hussin",
+      "lastName": "Ahmed",
+      "date": 1740331439385,
+      "orderCanceld": true
+    },
+    {
+      "id": "3085",
+      "userID": "1",
+      "totalPrice": 45,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "10ff",
+          "quantity": 2
         }
       ],
       "address": {
@@ -312,22 +181,18 @@
       "phone": "01155991822",
       "firstName": "Hussi",
       "lastName": "Soliman",
-      "date": 1740171823607,
+      "date": 1740331522081,
       "orderCanceld": true
     },
     {
-      "id": "9fac",
-      "userID": "1075",
-      "totalPrice": 140,
+      "id": "a3a9",
+      "userID": "1",
+      "totalPrice": 18370,
       "status": "placed",
       "items": [
         {
-          "productID": "e78f",
-          "quantity": 2
-        },
-        {
-          "productID": "d7ca",
-          "quantity": 2
+          "productID": "101",
+          "quantity": 12
         }
       ],
       "address": {
@@ -335,23 +200,65 @@
         "2": ""
       },
       "phone": "01155991822",
-      "firstName": "final",
-      "lastName": "final",
-      "date": 1740184533716,
+      "firstName": "Hussi",
+      "lastName": "Soliman",
+      "date": 1740331686201,
       "orderCanceld": true
     },
     {
-      "id": "82fb",
+      "id": "c908",
       "userID": "1",
-      "totalPrice": 442,
+      "totalPrice": 7660,
       "status": "placed",
       "items": [
         {
-          "productID": "953a",
-          "quantity": 8
+          "productID": "101",
+          "quantity": 5
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "Hussi",
+      "lastName": "Soliman",
+      "date": 1740332109865,
+      "orderCanceld": true
+    },
+    {
+      "id": "1cb5",
+      "userID": "1",
+      "totalPrice": 5698.6,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "102",
+          "quantity": 12
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "Hussi",
+      "lastName": "Soliman",
+      "date": 1740332600688,
+      "orderCanceld": true
+    },
+    {
+      "id": "b375",
+      "userID": "1",
+      "totalPrice": 3907.5,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "104",
+          "quantity": 12
         },
         {
-          "productID": "d7ca",
+          "productID": "103",
           "quantity": 1
         }
       ],
@@ -362,18 +269,47 @@
       "phone": "01155991822",
       "firstName": "Hussi",
       "lastName": "Soliman",
-      "date": 1740184602508,
+      "date": 1740332734896,
       "orderCanceld": true
     },
     {
-      "id": "d6c2",
-      "userID": "1",
-      "totalPrice": 108,
+      "id": "5545",
+      "userID": "34bf",
+      "totalPrice": 2140,
       "status": "placed",
       "items": [
         {
-          "productID": "953a",
+          "productID": "101",
+          "quantity": 1
+        },
+        {
+          "productID": "104",
           "quantity": 2
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "test",
+      "lastName": "Hussin",
+      "date": 1740332943160,
+      "orderCanceld": true
+    },
+    {
+      "id": "16cb",
+      "userID": "1",
+      "totalPrice": 810,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "d6f5",
+          "quantity": 2
+        },
+        {
+          "productID": "104",
+          "quantity": 1
         }
       ],
       "address": {
@@ -383,22 +319,179 @@
       "phone": "01155991822",
       "firstName": "Hussi",
       "lastName": "Soliman",
-      "date": 1740184619021,
+      "date": 1740333109361,
+      "orderCanceld": true
+    },
+    {
+      "id": "0824",
+      "userID": "1",
+      "totalPrice": 310,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "104",
+          "quantity": 1
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "Hussi",
+      "lastName": "Soliman",
+      "date": 1740333115400,
+      "orderCanceld": true
+    },
+    {
+      "id": "4629",
+      "userID": "3466",
+      "totalPrice": 13238.05,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "101",
+          "quantity": 1
+        },
+        {
+          "productID": "105",
+          "quantity": 3
+        },
+        {
+          "productID": "102",
+          "quantity": 1
+        },
+        {
+          "productID": "106",
+          "quantity": 2
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "test1",
+      "lastName": "Hussin",
+      "date": 1740333383048,
+      "orderCanceld": true
+    },
+    {
+      "id": "1aa3",
+      "userID": "2f78",
+      "totalPrice": 6093.2,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "102",
+          "quantity": 1
+        },
+        {
+          "productID": "104",
+          "quantity": 2
+        },
+        {
+          "productID": "105",
+          "quantity": 1
+        },
+        {
+          "productID": "101",
+          "quantity": 2
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "test",
+      "lastName": "Hussin",
+      "date": 1740334266336,
+      "orderCanceld": true
+    },
+    {
+      "id": "7b82",
+      "userID": "2f78",
+      "totalPrice": 2883.5,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "103",
+          "quantity": 1
+        },
+        {
+          "productID": "106",
+          "quantity": 1
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "test",
+      "lastName": "Hussin",
+      "date": 1740334281831,
+      "orderCanceld": true
+    },
+    {
+      "id": "1dc0",
+      "userID": "5409",
+      "totalPrice": 4069.2,
+      "status": "placed",
+      "items": [
+        {
+          "productID": "101",
+          "quantity": 2
+        },
+        {
+          "productID": "102",
+          "quantity": 1
+        },
+        {
+          "productID": "104",
+          "quantity": 2
+        }
+      ],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "test",
+      "lastName": "Hussin",
+      "date": 1740336650793,
+      "orderCanceld": true
+    },
+    {
+      "id": "e110",
+      "userID": "1",
+      "totalPrice": 10,
+      "status": "placed",
+      "items": [],
+      "address": {
+        "1": "asdas",
+        "2": ""
+      },
+      "phone": "01155991822",
+      "firstName": "Hussi",
+      "lastName": "Soliman",
+      "date": 1740337543353,
       "orderCanceld": true
     }
   ],
   "categories": [
     {
-      "id": "2",
-      "name": "Fire"
-    },
-    {
-      "id": "1",
-      "name": "Water"
+      "id": "4",
+      "name": "PCs"
     },
     {
       "id": "3",
-      "name": "Earth"
+      "name": "Headphones"
+    },
+    {
+      "id": "2",
+      "name": "Laptops"
     }
   ],
   "carts": [
@@ -426,6 +519,31 @@
       "userID": "1075",
       "items": [],
       "id": "ddf5"
+    },
+    {
+      "id": "e05f",
+      "userID": "3a00",
+      "items": []
+    },
+    {
+      "id": "3c76",
+      "userID": "34bf",
+      "items": []
+    },
+    {
+      "userID": "3466",
+      "items": [],
+      "id": "6932"
+    },
+    {
+      "userID": "2f78",
+      "items": [],
+      "id": "3b99"
+    },
+    {
+      "userID": "5409",
+      "items": [],
+      "id": "008e"
     }
   ],
   "wishlists": []

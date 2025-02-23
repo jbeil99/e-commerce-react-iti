@@ -16,7 +16,7 @@ import { useEffect } from 'react';
 import { getCurrentUser } from '../store/userSlice';
 import Dashboard from '../components/Dashboard';
 export function MainLayout() {
-  const { user, isLoading, errors } = useSelector(store => store.userSlice);
+  const { user } = useSelector(store => store.userSlice);
   const dispatch = useDispatch();
 
   useEffect(() => {

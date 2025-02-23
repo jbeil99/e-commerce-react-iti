@@ -6,19 +6,27 @@ import { useEffect } from 'react';
 import { getCartAction } from '../store/cartSlice';
 import Swal from 'sweetalert2';
 import { getCurrentUser } from '../store/userSlice';
-import { isFiveDaysOld } from '../js/helpers/bagesHelpers';
 
 export default function ProductCard({ product, badge }) {
     const { cart } = useSelector(store => store.cartSlice)
     const { user } = useSelector(store => store.userSlice);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const currentUser = user ? user : JSON.parse(sessionStorage.getItem('user'));
 
 
 
     useEffect(() => {
         dispatch(getCurrentUser())
-        dispatch(getCartAction(user?.id));
+        if (currentUser) {
+            dispatch(getCartAction(currentUser.id))
+        } else {
+            const sessionCart = JSON.parse(sessionStorage.getItem('cart'));
+            dispatch(getCartAction())
+            if (!sessionCart) {
+                sessionStorage.setItem('cart', JSON.stringify({ items: [] }))
+            }
+        }
     }, [])
 
     const handleClick = (e) => {
@@ -51,8 +59,10 @@ export default function ProductCard({ product, badge }) {
     return (
         <div className={`card ${badge.show ? badge.name : ''} product-card__rounded col ${product.responsive}`}>
             {badge.show ? <span className="product-badge">{badge.name}</span> : ''}
-            <img src={product.image} className="card-img-top"
-                alt="Fresh organic villa farm lemon 500gm pack" onClick={handleClick} />
+            <div className='product-img-c'>
+                <img src={product.image} className="card-img-top"
+                    alt="Fresh organic villa farm lemon 500gm pack" onClick={handleClick} />
+            </div>
             <div className="card-body">
                 <div onClick={handleClick}>
                     <p className="text-muted" >{product.category?.name}</p>

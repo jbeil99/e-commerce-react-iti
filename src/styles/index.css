@@ -34,9 +34,9 @@ h2 {
   left: 0;
   background-color: #ff6a00;
   color: #fff;
-  padding: 9px 20px;
+  padding: 5px 15px;
   border-radius: 15px 0 20px 0;
-  font-size: 1.2rem;
+  font-size: 15px;
 }
 
 .hot .product-badge {
@@ -47,12 +47,12 @@ h2 {
   background-color: #3BB77E;
 }
 
-.sale .product-badge {
+/* .sale .product-badge {
   background-color: #67BCEE;
-}
+} */
 
 .discount .product-badge {
-  background-color: #F59758;
+  background-color: #67BCEE;
 }
 
 
@@ -80,7 +80,7 @@ h2 {
 }
 
 .product-card__rounded img {
-  max-width: 150px;
+  max-width: 200px;
   margin: 0 auto;
 }
 
@@ -428,4 +428,15 @@ textarea {
 
 #product {
   max-width: 600px;
+}
+
+.product-image {
+  max-width: 400px;
+}
+
+.product-img-c {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

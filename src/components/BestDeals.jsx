@@ -22,11 +22,12 @@ const makeChunks = (products, chunkSize) => {
 export default function BestDeals() {
     let { products, isLoading, errors } = useSelector(store => store.productSlice);
     let items = [];
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllProductsAction())
-            .then(res => dispatch(getBestDeals(20)));
-    }, [])
+            .then(res => dispatch(getBestDeals(10)));
+    }, [items.length])
     if (!isLoading) {
         items = makeChunks(products, 4);
     }
@@ -46,6 +47,7 @@ export default function BestDeals() {
         }
         return badge;
     }
+    console.log(items.length > 4);
     return (
         <section className="daily-sells-section px-2 px-lg-0">
             <div className="row mb-md-5 mb-3 row-cols-1 row-cols-md-2 justify-content-between ">
@@ -72,7 +74,7 @@ export default function BestDeals() {
                         <a href="#" className="btn btn-primary">Shop now &rarr;</a>
                     </div>
                 </div>
-                <Carousel controls={items.length > 2} indicators={false} className="col col-xl-9 mt-5 mt-xl-0">
+                <Carousel controls={items.length > 1} indicators={false} className="col col-xl-9 mt-5 mt-xl-0">
                     {!isLoading ? items.map((item, index) => {
                         return (
                             <Carousel.Item key={index}>

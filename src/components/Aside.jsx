@@ -72,19 +72,19 @@ export default function Aside() {
                     <li className="form-check">
                         <input type="radio" className="form-check-input" value="1" name="price" onChange={handleFilter} />
                         <label className="form-check-label" htmlFor="blue-color">
-                            under 20
+                            under 500
                         </label>
                     </li>
                     <li className="form-check">
                         <input type="radio" className="form-check-input" value="2" name="price" onChange={handleFilter} />
                         <label className="form-check-label" htmlFor="blue-color">
-                            20-100
+                            500-1000
                         </label>
                     </li>
                     <li className="form-check">
                         <input type="radio" className="form-check-input" value="3" name="price" onChange={handleFilter} />
                         <label className="form-check-label" htmlFor="blue-color">
-                            above 100
+                            above 1000
                         </label>
                     </li>
                 </ul>

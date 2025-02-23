@@ -44,17 +44,23 @@ export default function CartTotals(props) {
                 date: Date.now(),
                 orderCanceld: true
             }
-            addOrder({ ...order, items: props.items });
-            props.items.forEach(item => {
-                updateProductQuantity(item.productID, item.quantity).then(res => console.log(res))
-            })
-            dispatch(emptyCartAction(props.id));
-            Swal.fire({
-                title: "Order Placed",
-                text: "Thank you for using clicon",
-                icon: "success"
-            });
+            if (props.items.length >= 1) {
 
+                addOrder({ ...order, items: props.items });
+                props.items.forEach(item => {
+                    updateProductQuantity(item.productID, item.quantity)
+                })
+                dispatch(emptyCartAction(props.id));
+                Swal.fire({
+                    title: "Order Placed",
+                    text: "Thank you for using clicon",
+                    icon: "success"
+                });
+            }
+            Swal.fire({
+                title: "Cart is empty",
+                icon: "danger"
+            });
         } else {
             Swal.fire({
                 title: "Login first to make an order",

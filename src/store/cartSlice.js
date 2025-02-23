@@ -106,6 +106,12 @@ const cartSlice = createSlice({
             state.isLoading = false;
             state.cart = { id: action.payload.id, items: [] };
         });
+        builder.addCase(addProductToCartAction.fulfilled, (state, action) => {
+            state.cart = action.payload
+        });
+        builder.addCase(deleteCartProductAction.fulfilled, (state, action) => {
+            state.cart = action.payload
+        });
     },
 });
 
