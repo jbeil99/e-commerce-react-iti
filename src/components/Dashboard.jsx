@@ -79,7 +79,7 @@ const Dashboard = () => {
                             <td>{product.price}</td>
                             <td>{product.seller.name}</td>
                             <td className='text-center'>
-                                <Link to={`/products/${product.id}/edit`} className='btn btn-info me-2'>Edit</Link>
+                                <Link to={`/products/${product.id}/edit`} className='btn btn-warning me-2'>Edit</Link>
                                 <Link to={`/products/${product.id}`} className='btn btn-info me-2'>View</Link>
 
                                 <button className='btn btn-danger' onClick={handleDelete} data-id={product.id}>Delete</button>

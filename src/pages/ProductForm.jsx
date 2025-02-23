@@ -1,6 +1,3 @@
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { getProductById } from '../api/product';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +5,8 @@ import { useNavigate, useParams } from 'react-router';
 import { addProductAction, editProductAction } from '../store/productSlice';
 import Swal from 'sweetalert2'
 import { handleProduct } from '../js/validation/productValidation';
+import { Link } from 'react-router';
+
 export default function ProductForm() {
     const { user } = useSelector(store => store.userSlice);
     const { id } = useParams();
@@ -115,7 +114,7 @@ export default function ProductForm() {
                         text: "Product has been Edited",
                         icon: "success"
                     });
-                    navigate('/shop')
+                    navigate(`/products/${id}`)
                 }
             }
 
@@ -133,7 +132,8 @@ export default function ProductForm() {
 
 
     return (
-        <main className='section-container mb-5 d-flex justify-contnet-center align-items-center'>
+        <main className='section-container mb-5 d-flex justify-contnet-center align-items-start'>
+            <Link className="btn btn-info mb-2" to={'/dashboard'}>Back to Dashboard </Link>
             <form className="needs-validation border p-5 mx-auto row gy-2" id='product' onSubmit={handleSumbit}>
                 <div className="col-md-12">
                     <label htmlFor="name" className="form-label">Product Name</label>

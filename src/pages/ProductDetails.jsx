@@ -6,11 +6,10 @@ import { useDispatch } from 'react-redux';
 import { deleteProductAction } from '../store/productSlice';
 import { useSelector } from 'react-redux';
 import { getCartAction, addProductToCartAction } from '../store/cartSlice';
-import { getCurrentUser } from '../store/userSlice';
 import { addProductToCartSessionAction } from '../store/cartSlice';
 export default function ProductDetails() {
     const { user } = useSelector(store => store.userSlice);
-    let { cart, isLoading, errors } = useSelector(store => store.cartSlice)
+    const { cart } = useSelector(store => store.cartSlice)
 
     const isAuthenticated = Boolean(user);
     const isAdmin = isAuthenticated && user.role == 'admin' ? true : false;

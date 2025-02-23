@@ -6,11 +6,11 @@ import { useEffect } from 'react';
 import { getCartAction } from '../store/cartSlice';
 import Swal from 'sweetalert2';
 import { getCurrentUser } from '../store/userSlice';
-import { addProdcutToSessionCart } from '../api/cart';
+import { isFiveDaysOld } from '../js/helpers/bagesHelpers';
 
-export default function ProductCard(product) {
-    let { cart, isLoading, errors } = useSelector(store => store.cartSlice)
-    let { user } = useSelector(store => store.userSlice);
+export default function ProductCard({ product, badge }) {
+    const { cart } = useSelector(store => store.cartSlice)
+    const { user } = useSelector(store => store.userSlice);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -24,7 +24,6 @@ export default function ProductCard(product) {
     const handleClick = (e) => {
         e.stopPropagation();
         navigate(`/products/${product.id}`)
-
     }
 
 
@@ -50,8 +49,8 @@ export default function ProductCard(product) {
         }
     }
     return (
-        <div className={`card hot product-card__rounded col ${product.responsive}`}>
-            <span className="product-badge">Hot</span>
+        <div className={`card ${badge.show ? badge.name : ''} product-card__rounded col ${product.responsive}`}>
+            {badge.show ? <span className="product-badge">{badge.name}</span> : ''}
             <img src={product.image} className="card-img-top"
                 alt="Fresh organic villa farm lemon 500gm pack" onClick={handleClick} />
             <div className="card-body">
@@ -69,8 +68,11 @@ export default function ProductCard(product) {
                 </div>
                 <p className="card-text text-danger mt-2"><span className="text-muted">By</span> {product.seller?.name}</p>
                 <div className="row">
-                    <p className="text-success font-weight-bold h5 col-auto">${calcProductTotalPriceAfterDiscount(product)} <span
-                        className="text-muted h6 text-decoration-line-through ml-2 ">${product.customerPrice}</span></p>
+                    {product.sale > 0
+                        ? <p className="text-success font-weight-bold h5 col-auto">${calcProductTotalPriceAfterDiscount(product)} <span
+                            className="text-muted h6 text-decoration-line-through ml-2 ">${product.customerPrice}</span></p>
+                        : <p className="text-success font-weight-bold h5 col-auto">${calcProductTotalPriceAfterDiscount(product)}</p>
+                    }
                 </div>
                 <div>
                     {product.quantity > 0

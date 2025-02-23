@@ -104,7 +104,7 @@
       "reviews": [],
       "approved": true,
       "sold": 0,
-      "sale": "2",
+      "sale": 0,
       "createdAt": "2025-01-19T04:29:09.343Z",
       "sellerDeleted": false
     },
@@ -198,6 +198,28 @@
       "sale": "20",
       "approved": false,
       "": "ppapsdpaspdaspd"
+    },
+    {
+      "id": "8d19",
+      "name": "panadol",
+      "price": "20",
+      "rating": 0,
+      "customerPrice": "50",
+      "category": {
+        "id": "1",
+        "name": "Water"
+      },
+      "seller": {
+        "id": 1,
+        "name": "clicon"
+      },
+      "quantity": "25",
+      "description": "ssssssssssssssssssssssssssssssssssss",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEA3221JjRaxvOhz9SsZtBuHUvn4HmeKhjiZD7W6PEOKYIp0x5OCYlNxVKRpp-uyp3VEMYi5DoVnDptS5cEJduTPV_uB9PyAinFRETyg",
+      "reviews": [],
+      "sale": "10",
+      "approved": false,
+      "createdAt": "2025-02-23T00:21:21.725Z"
     }
   ],
   "orders": [

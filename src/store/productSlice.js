@@ -44,6 +44,7 @@ export const addProductAction = createAsyncThunk(
     "product/addProductAction",
     async (product, { rejectWithValue }) => {
         try {
+            product['createdAt'] = new Date().toISOString();
             let response = await addNewProduct(product);
             return response.data;
         } catch (error) {

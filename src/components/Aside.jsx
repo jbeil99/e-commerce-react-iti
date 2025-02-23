@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { filter, getAllProductsAction } from '../store/productSlice'
 
 export default function Aside() {
-    let { products, isLoading, errors } = useSelector(store => store.productSlice)
+    const { products, isLoading, errors } = useSelector(store => store.productSlice)
     const dispatch = useDispatch();
     const [categories, setCategories] = useState([]);
     const [filterProduct, setFilter] = useState({
@@ -22,16 +22,15 @@ export default function Aside() {
             }
         }
         fetchCategories();
-        dispatch(getAllProductsAction());
-
     }, [])
 
     const handleFilter = (e) => {
         setFilter({ ...filterProduct, [e.target.name]: e.target.value })
     }
+
     // TODO: Fix issue after filter you cant use another filter
 
-    const getFilterProduct = () => {
+    const getFilterProduct = (e) => {
         if (filterProduct.category == 0 && filterProduct.price == 0) {
             dispatch(getAllProductsAction());
             return;
